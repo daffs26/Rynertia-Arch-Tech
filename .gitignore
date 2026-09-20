@@ -30,6 +30,7 @@ id_rsa*
 
 # ── Production Build Outputs ───────────────────────────
 /.next/
+/.vercel/
 /out/
 /build/
 /dist/
