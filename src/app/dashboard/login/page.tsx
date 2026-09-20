@@ -11,22 +11,54 @@ import {
   Linkedin,
   Globe,
   Github,
+  User,
+  Check,
 } from 'lucide-react';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const [isSignUp, setIsSignUp] = useState(false);
+  
+  // Sign In Form State
   const [email, setEmail] = useState('admin@rynertia.id');
   const [password, setPassword] = useState('admin123');
   const [rememberMe, setRememberMe] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Sign Up Form State
+  const [fullName, setFullName] = useState('');
+  const [signUpEmail, setSignUpEmail] = useState('');
+  const [signUpPassword, setSignUpPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [agreedTerms, setAgreedTerms] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMessage('');
     setIsLoading(true);
-    // Visual simulated authentication
     setTimeout(() => {
       router.push('/dashboard');
     }, 600);
+  };
+
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    setErrorMessage('');
+    if (signUpPassword !== confirmPassword) {
+      setErrorMessage('Konfirmasi kata sandi tidak cocok. Harap periksa kembali.');
+      return;
+    }
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setSuccessMessage('Akun administrator berhasil dibuat. Mengalihkan ke dashboard...');
+      setTimeout(() => {
+        router.push('/dashboard');
+      }, 800);
+    }, 800);
   };
 
   return (
@@ -34,117 +66,41 @@ export default function AdminLoginPage() {
       {/* Centered Split-Screen Card */}
       <div className="max-w-4xl lg:max-w-[960px] w-full mx-auto bg-white rounded-[28px] sm:rounded-[36px] shadow-[0_25px_70px_rgba(37,99,235,0.09),0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 overflow-hidden flex flex-col md:flex-row transition-all">
         
-        {/* LEFT COLUMN: Blue Illustration Panel */}
+        {/* LEFT COLUMN: Blue Panel with Rynertia Arc Tech Official Logo (Gambar ke-3) */}
         <div className="w-full md:w-[46%] bg-gradient-to-br from-[#2563EB] to-[#1D4ED8] p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden text-white rounded-t-[28px] md:rounded-t-none md:rounded-l-[28px] md:rounded-tr-[40px] md:rounded-br-[64px] shadow-lg md:shadow-none z-10">
           
-          {/* Subtle Background Ambience Clouds */}
+          {/* Subtle Background Ambience */}
           <div className="absolute -top-12 -left-12 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none" />
-          <div className="absolute top-1/4 right-0 w-36 h-36 bg-sky-400/20 rounded-full blur-xl pointer-events-none" />
+          <div className="absolute top-1/3 right-0 w-44 h-44 bg-sky-400/20 rounded-full blur-2xl pointer-events-none" />
 
-          {/* Top Brand Indicator */}
-          <div className="flex items-center gap-2.5 relative z-10">
-            <div className="w-8 h-8 rounded-xl bg-white/15 backdrop-blur-md flex items-center justify-center border border-white/20">
+          {/* Center Logo & Brand Typography (Tanpa badge putih, teks berwarna putih) */}
+          <div className="my-auto py-8 sm:py-12 flex flex-col items-center justify-center relative z-10 text-center">
+            <div className="relative flex items-center justify-center hover:scale-105 transition-transform duration-300">
+              {/* Soft subtle ambient glow */}
+              <div className="absolute inset-0 bg-white/20 blur-2xl rounded-full -z-10" />
               <img
                 src="/logo-icon.png"
                 alt="Rynertia Arc Tech Logo"
-                className="w-5 h-5 object-contain"
+                className="w-28 h-28 sm:w-36 sm:h-36 object-contain drop-shadow-2xl"
               />
             </div>
-            <div>
-              <span className="block font-bold text-xs tracking-wider text-white leading-tight font-poppins">
+
+            <div className="mt-6 text-center">
+              <h2 className="font-poppins font-bold text-2xl sm:text-3xl text-white tracking-wider leading-tight drop-shadow-sm">
                 RYNERTIA
-              </span>
-              <span className="block text-[9px] font-semibold tracking-widest text-sky-200 font-poppins">
+              </h2>
+              <p className="font-poppins font-semibold text-xs sm:text-sm tracking-[0.25em] text-white mt-1 uppercase drop-shadow-sm">
                 ARC TECH
-              </span>
+              </p>
+              <p className="mt-3 text-xs font-poppins font-normal text-white/80 max-w-[240px] mx-auto leading-relaxed">
+                Technology Consulting & Digital Systems
+              </p>
             </div>
-          </div>
-
-          {/* Center Tech Workstation Illustration (Vector Art matching reference) */}
-          <div className="my-8 flex flex-col items-center justify-center relative z-10">
-            <svg
-              className="w-full max-w-[280px] h-auto drop-shadow-md"
-              viewBox="0 0 320 240"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Soft Room Ambience Arch */}
-              <path
-                d="M40 210 C40 110, 100 50, 200 50 C260 50, 290 90, 290 210 Z"
-                fill="currentColor"
-                className="text-blue-500/25"
-              />
-
-              {/* Distant Window & Digital Dashboard elements */}
-              <rect x="180" y="80" width="80" height="90" rx="12" fill="white" fillOpacity="0.08" />
-              <line x1="195" y1="100" x2="245" y2="100" stroke="white" strokeOpacity="0.3" strokeWidth="3" strokeLinecap="round" />
-              <line x1="195" y1="115" x2="230" y2="115" stroke="white" strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" />
-              <line x1="195" y1="128" x2="240" y2="128" stroke="white" strokeOpacity="0.2" strokeWidth="2" strokeLinecap="round" />
-
-              {/* Plant on the left */}
-              <path d="M55 195 Q52 175 45 168 Q58 178 55 195" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
-              <path d="M55 195 Q60 178 68 172 Q59 184 55 195" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
-              <rect x="48" y="195" width="14" height="15" rx="3" fill="#1E3A8A" />
-
-              {/* Mailbox / Communication Tower */}
-              <g transform="translate(68, 115)">
-                {/* Mailbox Pole */}
-                <line x1="16" y1="35" x2="16" y2="95" stroke="#1E3A8A" strokeWidth="4" strokeLinecap="round" />
-                {/* Mailbox Body */}
-                <path d="M4 15 C4 6, 12 0, 22 0 L32 0 C38 0, 42 6, 42 15 L42 35 L4 35 Z" fill="#1E3A8A" />
-                {/* Mailbox Door & Letter */}
-                <rect x="10" y="10" width="22" height="15" rx="2" fill="white" />
-                <path d="M10 10 L21 18 L32 10" stroke="#2563EB" strokeWidth="1.5" />
-                {/* Floating Notification Sparkles */}
-                <circle cx="12" cy="4" r="1.5" fill="#FDE047" />
-                <circle cx="28" cy="2" r="2" fill="#FDE047" />
-                <circle cx="36" cy="8" r="1.5" fill="#FDE047" />
-              </g>
-
-              {/* Modern Work Desk */}
-              <g transform="translate(100, 110)">
-                {/* Table Top */}
-                <rect x="0" y="8" width="160" height="12" rx="4" fill="#1E3A8A" />
-                {/* Desk Drawers Left */}
-                <rect x="8" y="20" width="44" height="80" rx="6" fill="#1E3A8A" />
-                <rect x="14" y="28" width="32" height="18" rx="3" fill="#172554" />
-                <circle cx="30" cy="37" r="2" fill="#60A5FA" />
-                <rect x="14" y="52" width="32" height="18" rx="3" fill="#172554" />
-                <circle cx="30" cy="61" r="2" fill="#60A5FA" />
-                {/* Desk Leg Right */}
-                <rect x="140" y="20" width="8" height="80" rx="4" fill="#1E3A8A" />
-
-                {/* Character Sitting on Desk with Laptop */}
-                {/* Hair */}
-                <path
-                  d="M48 -55 C38 -55, 30 -42, 30 -25 C30 -2, 36 2, 40 18 L58 18 C56 0, 62 -28, 62 -42 C62 -52, 56 -55, 48 -55 Z"
-                  fill="#0F172A"
-                />
-                {/* Face Profile */}
-                <circle cx="48" cy="-34" r="8" fill="#FDE68A" />
-                {/* Yellow Top / Shirt */}
-                <path d="M38 -20 Q48 -14 58 -20 L56 6 Q46 10 38 6 Z" fill="#FBBF24" />
-                {/* Blue Jeans / Pants */}
-                <path d="M40 6 L54 6 L64 36 L48 38 Z" fill="#3B82F6" />
-                {/* Leg dangling */}
-                <path d="M60 30 Q70 45 74 54 Q68 56 60 42 Z" fill="#3B82F6" />
-                {/* Shoe */}
-                <ellipse cx="76" cy="56" rx="5" ry="3" fill="#E2E8F0" />
-
-                {/* Laptop on Desk */}
-                <path d="M68 0 L72 -22 L94 -22 L90 0 Z" fill="#F8FAFC" />
-                <rect x="66" y="0" width="28" height="4" rx="2" fill="#CBD5E1" />
-                {/* Glow from screen */}
-                <circle cx="76" cy="-14" r="1.5" fill="#FDE047" />
-                <circle cx="84" cy="-8" r="2" fill="#FDE047" />
-                <circle cx="92" cy="-18" r="1.5" fill="#FDE047" />
-              </g>
-            </svg>
           </div>
 
           {/* Bottom Social Links & Copyright */}
-          <div className="relative z-10 pt-2 border-t border-white/15 flex items-center justify-between">
-            <div className="flex items-center gap-3 text-white/80">
+          <div className="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between">
+            <div className="flex items-center gap-2.5 text-white/80">
               <Link
                 href="https://linkedin.com"
                 target="_blank"
@@ -182,11 +138,11 @@ export default function AdminLoginPage() {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: Clean White Form Side */}
+        {/* RIGHT COLUMN: Clean White Form Side (Sign In / Create Account) */}
         <div className="w-full md:w-[54%] p-8 sm:p-12 lg:p-14 flex flex-col justify-between bg-white">
           
-          {/* Top Header with Brand Logo */}
-          <div className="flex items-center justify-between mb-6">
+          {/* Top Header */}
+          <div className="flex items-center justify-between mb-4">
             <div>
               <span className="block font-bold text-sm tracking-wider text-slate-900 font-poppins leading-tight">
                 RYNERTIA
@@ -205,106 +161,259 @@ export default function AdminLoginPage() {
             </Link>
           </div>
 
-          {/* Main Title */}
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold text-slate-900 font-poppins tracking-tight">
-              Sign in
-            </h1>
-            <p className="text-xs text-slate-500 font-poppins mt-1">
-              Konsol Administrator Rynertia Arc Tech
-            </p>
-          </div>
+          {/* Success Notification if registered */}
+          {successMessage && (
+            <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-800 flex items-center gap-2">
+              <Check className="w-4 h-4 text-emerald-600 shrink-0" />
+              <span>{successMessage}</span>
+            </div>
+          )}
 
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Login / Email Input (Underline / Minimalist Style) */}
+          {/* Form Content: Switch between Sign In and Create Account */}
+          {!isSignUp ? (
+            /* ─────────────────────────────────────────────────────────────
+               SIGN IN FORM
+               ───────────────────────────────────────────────────────────── */
             <div>
-              <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
-                LOGIN
-              </label>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="meghan.tormund@gmail.com"
-                className="w-full py-2 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-poppins"
-              />
-            </div>
+              <div className="mb-6">
+                <h1 className="text-2xl font-bold text-slate-900 font-poppins tracking-tight">
+                  Sign in
+                </h1>
+                <p className="text-xs text-slate-500 font-poppins mt-1">
+                  Konsol Administrator Rynertia Arc Tech
+                </p>
+              </div>
 
-            {/* Password Input */}
+              <form onSubmit={handleSignIn} className="space-y-5">
+                {/* Email Input */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    LOGIN
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="admin@rynertia.id"
+                    className="w-full py-2 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-poppins"
+                  />
+                </div>
+
+                {/* Password Input */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    PASSWORD
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="••••••••••••"
+                    className="w-full py-2 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-mono tracking-wider"
+                  />
+                </div>
+
+                {/* Remember Me & Forgot Password */}
+                <div className="flex items-center justify-between pt-1">
+                  <label className="flex items-center gap-2 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      checked={rememberMe}
+                      onChange={(e) => setRememberMe(e.target.checked)}
+                      className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/20 cursor-pointer"
+                    />
+                    <span className="text-xs text-slate-600 font-poppins font-normal">
+                      Remember me
+                    </span>
+                  </label>
+
+                  <button
+                    type="button"
+                    onClick={() => alert('Untuk akun administrator internal, hubungi Super Admin Rynertia.')}
+                    className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 font-medium font-poppins transition-colors cursor-pointer"
+                  >
+                    <Lock className="w-3 h-3" />
+                    <span>Forgot password?</span>
+                  </button>
+                </div>
+
+                {/* Submit Row + Switch to Sign Up */}
+                <div className="pt-2 flex items-center justify-between">
+                  <div className="text-xs text-slate-500 font-poppins">
+                    No account?{' '}
+                    <button
+                      type="button"
+                      onClick={() => setIsSignUp(true)}
+                      className="text-blue-600 font-semibold hover:underline cursor-pointer focus:outline-hidden"
+                    >
+                      Sign up
+                    </button>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-xs font-poppins transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer min-h-[40px]"
+                  >
+                    {isLoading ? (
+                      <span>Verifikasi...</span>
+                    ) : (
+                      <>
+                        <span>Sign in</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          ) : (
+            /* ─────────────────────────────────────────────────────────────
+               CREATE ACCOUNT FORM (SIGN UP)
+               ───────────────────────────────────────────────────────────── */
             <div>
-              <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
-                PASSWORD
-              </label>
-              <input
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••••••"
-                className="w-full py-2 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-mono tracking-wider"
-              />
+              <div className="mb-5">
+                <h1 className="text-2xl font-bold text-slate-900 font-poppins tracking-tight">
+                  Create account
+                </h1>
+                <p className="text-xs text-slate-500 font-poppins mt-1">
+                  Pendaftaran akun Administrator baru Rynertia Arc Tech
+                </p>
+              </div>
+
+              {errorMessage && (
+                <div className="mb-4 p-3 rounded-xl bg-rose-50 border border-rose-200/80 text-rose-700 text-xs font-poppins">
+                  {errorMessage}
+                </div>
+              )}
+
+              {successMessage && (
+                <div className="mb-4 p-3 rounded-xl bg-emerald-50 border border-emerald-200/80 text-emerald-700 text-xs font-poppins">
+                  {successMessage}
+                </div>
+              )}
+
+              <form onSubmit={handleSignUp} className="space-y-4">
+                {/* Full Name */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    FULL NAME
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      required
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Daffa Administrator"
+                      className="w-full py-1.5 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-poppins"
+                    />
+                    <User className="w-3.5 h-3.5 text-slate-400 absolute right-1 top-2" />
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    EMAIL ADMINISTRATOR
+                  </label>
+                  <input
+                    type="email"
+                    required
+                    value={signUpEmail}
+                    onChange={(e) => setSignUpEmail(e.target.value)}
+                    placeholder="nama@rynertia.id"
+                    className="w-full py-1.5 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-poppins"
+                  />
+                </div>
+
+                {/* Password */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    PASSWORD
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={signUpPassword}
+                    onChange={(e) => setSignUpPassword(e.target.value)}
+                    placeholder="Minimal 8 karakter"
+                    className="w-full py-1.5 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-mono tracking-wider"
+                  />
+                </div>
+
+                {/* Confirm Password */}
+                <div>
+                  <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-widest font-poppins mb-1">
+                    CONFIRM PASSWORD
+                  </label>
+                  <input
+                    type="password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    placeholder="Ulangi kata sandi"
+                    className="w-full py-1.5 bg-transparent border-b border-slate-200 focus:border-blue-600 text-sm font-medium text-slate-800 placeholder:text-slate-400 focus:outline-hidden transition-colors font-mono tracking-wider"
+                  />
+                </div>
+
+                {/* Agree Policy */}
+                <div className="pt-1">
+                  <label className="flex items-center gap-2 cursor-pointer select-none">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={agreedTerms}
+                      onChange={(e) => setAgreedTerms(e.target.checked)}
+                      className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/20 cursor-pointer"
+                    />
+                    <span className="text-[11px] text-slate-600 font-poppins font-normal leading-tight">
+                      Saya menyetujui Kebijakan Akses Administrator Internal
+                    </span>
+                  </label>
+                </div>
+
+                {/* Submit Row + Switch to Sign In */}
+                <div className="pt-2 flex items-center justify-between">
+                  <div className="text-xs text-slate-500 font-poppins">
+                    Have an account?{' '}
+                    <button
+                      type="button"
+                      onClick={() => setIsSignUp(false)}
+                      className="text-blue-600 font-semibold hover:underline cursor-pointer focus:outline-hidden"
+                    >
+                      Sign in
+                    </button>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-xs font-poppins transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer min-h-[40px]"
+                  >
+                    {isLoading ? (
+                      <span>Memproses...</span>
+                    ) : (
+                      <>
+                        <span>Create account</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
             </div>
-
-            {/* Remember Me & Forgot Password Row */}
-            <div className="flex items-center justify-between pt-1">
-              <label className="flex items-center gap-2 cursor-pointer select-none">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                  className="w-4 h-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500/20 cursor-pointer"
-                />
-                <span className="text-xs text-slate-600 font-poppins font-normal">
-                  Remember me
-                </span>
-              </label>
-
-              <button
-                type="button"
-                onClick={() => alert('Untuk akun administrator internal, hubungi Super Admin Rynertia.')}
-                className="inline-flex items-center gap-1 text-xs text-blue-600 hover:text-blue-700 font-medium font-poppins transition-colors cursor-pointer"
-              >
-                <Lock className="w-3 h-3" />
-                <span>Forgot password?</span>
-              </button>
-            </div>
-
-            {/* Submit & Demo Hint Row */}
-            <div className="pt-2 flex items-center justify-between">
-              <p className="text-xs text-slate-500 font-poppins">
-                Demo access?{' '}
-                <span className="font-mono text-blue-600 font-semibold">
-                  admin@rynertia.id
-                </span>
-              </p>
-
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-xs font-poppins transition-all shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer min-h-[40px]"
-              >
-                {isLoading ? (
-                  <span>Verifikasi...</span>
-                ) : (
-                  <>
-                    <span>Sign in</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </>
-                )}
-              </button>
-            </div>
-          </form>
+          )}
 
           {/* Alternative Quick Authentication Options */}
-          <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+          <div className="mt-6 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
             <button
               type="button"
-              onClick={() => handleSubmit({ preventDefault: () => {} } as React.FormEvent)}
+              onClick={() => handleSignIn({ preventDefault: () => {} } as React.FormEvent)}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 text-[11px] font-medium font-poppins transition-colors cursor-pointer shadow-2xs"
             >
-              {/* Colorful Google 'G' icon */}
               <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24">
                 <path
                   fill="#4285F4"
@@ -328,7 +437,7 @@ export default function AdminLoginPage() {
 
             <button
               type="button"
-              onClick={() => handleSubmit({ preventDefault: () => {} } as React.FormEvent)}
+              onClick={() => handleSignIn({ preventDefault: () => {} } as React.FormEvent)}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 hover:bg-slate-50 text-slate-600 text-[11px] font-medium font-poppins transition-colors cursor-pointer shadow-2xs"
             >
               <Shield className="w-3.5 h-3.5 text-blue-600 shrink-0" />

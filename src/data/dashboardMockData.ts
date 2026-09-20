@@ -440,3 +440,287 @@ export const initialBusinessCandidates: BusinessCandidate[] = [
     estimatedValue: 'Rp 60.000.000',
   },
 ];
+
+// ─────────────────────────────────────────────────────────────
+// DATA MODUL BARU SESUAI VIDEO REFERENSI (BENTO & TRACKER)
+// ─────────────────────────────────────────────────────────────
+
+export interface NeedsCreationItem {
+  id: string;
+  title: string;
+  platform: 'Instagram' | 'TikTok' | 'Blog' | 'LinkedIn' | 'Email Newsletter' | 'Pinterest';
+  format: string;
+  date: string;
+  status: 'Overdue' | 'In Production' | 'Draft' | 'Idea';
+}
+
+export const initialNeedsCreationData: NeedsCreationItem[] = [
+  {
+    id: 'nc-1',
+    title: 'Arsitektur Multi-Cloud: Strategi Efisiensi FinOps',
+    platform: 'Instagram',
+    format: 'Reel · Seri Tech Cloud',
+    date: '21 Agu',
+    status: 'Overdue',
+  },
+  {
+    id: 'nc-2',
+    title: 'Migrasi Core Banking ke Microservices Tanpa Downtime',
+    platform: 'TikTok',
+    format: 'Short Video · Case Study',
+    date: '27 Agu',
+    status: 'In Production',
+  },
+  {
+    id: 'nc-3',
+    title: 'Panduan Praktis Audit Keamanan ISO 27001 bagi Startup',
+    platform: 'Blog',
+    format: 'Artikel Teknis · Solusi Keamanan',
+    date: '28 Agu',
+    status: 'Draft',
+  },
+  {
+    id: 'nc-4',
+    title: 'Peluncuran Paket Modernisasi Sistem ERP Manufaktur',
+    platform: 'Instagram',
+    format: 'Story · Kampanye Q3',
+    date: '1 Sep',
+    status: 'Idea',
+  },
+  {
+    id: 'nc-5',
+    title: '5 Kesalahan Fatal dalam Implementasi Pipeline CI/CD Enterprise',
+    platform: 'LinkedIn',
+    format: 'Dokumen Carousel · DevOps',
+    date: '2 Sep',
+    status: 'Draft',
+  },
+];
+
+export interface ReadyToPublishItem {
+  id: string;
+  title: string;
+  platform: 'Instagram' | 'TikTok' | 'Blog' | 'LinkedIn' | 'Email Newsletter';
+  format: string;
+  date: string;
+  status: 'Ready';
+}
+
+export const initialReadyToPublishData: ReadyToPublishItem[] = [
+  {
+    id: 'rp-1',
+    title: 'Checklist Pemeliharaan Server Cloud Mingguan',
+    platform: 'Instagram',
+    format: 'Carousel · Panduan SysAdmin',
+    date: '25 Agu',
+    status: 'Ready',
+  },
+  {
+    id: 'rp-2',
+    title: 'Template Standar Arsitektur Database Terdistribusi',
+    platform: 'Email Newsletter',
+    format: 'Buletin Bulanan · Konsultasi',
+    date: '29 Agu',
+    status: 'Ready',
+  },
+  {
+    id: 'rp-3',
+    title: 'Sorotan Portofolio: Platform Telemedisin Skala 500k Pengguna',
+    platform: 'Instagram',
+    format: 'Carousel · Studi Kasus Klien',
+    date: '31 Agu',
+    status: 'Ready',
+  },
+];
+
+export interface ActiveCampaignItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  dateRange: string;
+  publishedCount: number;
+  plannedCount: number;
+  progress: number;
+  status: 'Active' | 'Planning' | 'Completed';
+  cta: string;
+  budget: string;
+}
+
+export const initialCampaignsData: ActiveCampaignItem[] = [
+  {
+    id: 'camp-1',
+    title: 'Peluncuran Solusi FinTech Enterprise',
+    subtitle: '19 Jul - 10 Sep · Kampanye Solusi Baru',
+    dateRange: '19 Jul - 10 Sep',
+    plannedCount: 12,
+    publishedCount: 4,
+    progress: 33,
+    status: 'Active',
+    cta: 'Jadwalkan Konsultasi Solusi',
+    budget: 'Rp 18.500.000',
+  },
+  {
+    id: 'camp-2',
+    title: 'Akselerasi Pertumbuhan Klien Manufaktur',
+    subtitle: '29 Jun - 2 Okt · Penetrasi Pasar Industri',
+    dateRange: '29 Jun - 2 Okt',
+    plannedCount: 6,
+    publishedCount: 3,
+    progress: 50,
+    status: 'Active',
+    cta: 'Dapatkan Audit Proses Bisnis',
+    budget: 'Rp 14.000.000',
+  },
+  {
+    id: 'camp-3',
+    title: 'Program Transformasi Digital UMKM',
+    subtitle: '17 Sep - 27 Okt · Penawaran Khusus Q4',
+    dateRange: '17 Sep - 27 Okt',
+    plannedCount: 4,
+    publishedCount: 0,
+    progress: 0,
+    status: 'Planning',
+    cta: 'Daftar Program Pendampingan',
+    budget: 'Rp 8.000.000',
+  },
+  {
+    id: 'camp-4',
+    title: 'Edukasi Keamanan Siber & Cloud Resilience',
+    subtitle: '14 Jun - 15 Agu · Rangkaian Artikel Otoritatif',
+    dateRange: '14 Jun - 15 Agu',
+    plannedCount: 3,
+    publishedCount: 2,
+    progress: 67,
+    status: 'Completed',
+    cta: 'Unduh Buku Putih Keamanan',
+    budget: 'Rp 12.000.000',
+  },
+];
+
+export interface PlatformCoverageItem {
+  platform: string;
+  plannedCount: number;
+  badgeColor: string;
+}
+
+export const initialPlatformCoverageData: PlatformCoverageItem[] = [
+  { platform: 'LinkedIn Enterprise', plannedCount: 4, badgeColor: 'bg-blue-50 text-blue-700' },
+  { platform: 'Instagram Business', plannedCount: 3, badgeColor: 'bg-rose-50 text-rose-700' },
+  { platform: 'Blog & Wawasan Resmi', plannedCount: 2, badgeColor: 'bg-emerald-50 text-emerald-700' },
+  { platform: 'Email Buletin Klien', plannedCount: 1, badgeColor: 'bg-purple-50 text-purple-700' },
+  { platform: 'TikTok Tech Bites', plannedCount: 2, badgeColor: 'bg-slate-100 text-slate-800' },
+];
+
+export interface BestPerformingItem {
+  id: string;
+  title: string;
+  platform: string;
+  clicks: number;
+  trackedValue: string;
+  views: number;
+  engagement: string;
+  ctr: string;
+  leads: number;
+  publishedDate: string;
+}
+
+export const initialBestPerformingData: BestPerformingItem[] = [
+  {
+    id: 'bp-1',
+    title: 'Modernisasi Core Banking & Skalabilitas Microservices',
+    platform: 'LinkedIn Enterprise',
+    clicks: 2410,
+    trackedValue: 'Rp 42.500.000',
+    views: 32700,
+    engagement: '14.9%',
+    ctr: '7.4%',
+    leads: 44,
+    publishedDate: '15 Agu',
+  },
+  {
+    id: 'bp-2',
+    title: 'Audit Proses Bisnis Sebelum Implementasi ERP',
+    platform: 'Blog Resmi',
+    clicks: 1360,
+    trackedValue: 'Rp 28.000.000',
+    views: 18400,
+    engagement: '12.1%',
+    ctr: '7.4%',
+    leads: 29,
+    publishedDate: '12 Agu',
+  },
+  {
+    id: 'bp-3',
+    title: 'Peluncuran Arsitektur Cloud FinOps Terdistribusi',
+    platform: 'LinkedIn Enterprise',
+    clicks: 288,
+    trackedValue: 'Rp 16.500.000',
+    views: 4100,
+    engagement: '12.0%',
+    ctr: '3.0%',
+    leads: 18,
+    publishedDate: '19 Agu',
+  },
+  {
+    id: 'bp-4',
+    title: 'Desain Antarmuka Intuitif Solusi B2B SaaS',
+    platform: 'Instagram Business',
+    clicks: 244,
+    trackedValue: 'Rp 11.200.000',
+    views: 2950,
+    engagement: '10.8%',
+    ctr: '3.1%',
+    leads: 12,
+    publishedDate: '6 Agu',
+  },
+  {
+    id: 'bp-5',
+    title: 'Buletin Eksekutif: Tren Teknologi Q3/Q4',
+    platform: 'Email Buletin Klien',
+    clicks: 91,
+    trackedValue: 'Rp 9.800.000',
+    views: 1280,
+    engagement: '8.6%',
+    ctr: '14.2%',
+    leads: 8,
+    publishedDate: '22 Jul',
+  },
+];
+
+export interface CalendarEventItem {
+  id: string;
+  day: number;
+  title: string;
+  platform: string;
+  status: 'Ready' | 'In Production' | 'Draft' | 'Published';
+  color: string;
+}
+
+export const initialCalendarEventsData: CalendarEventItem[] = [
+  { id: 'cal-1', day: 6, title: 'Instagram: Peluncuran Solusi Cloud', platform: 'Instagram', status: 'Published', color: 'border-blue-400 bg-blue-50/80 text-blue-900' },
+  { id: 'cal-2', day: 12, title: 'LinkedIn: Panduan Arsitektur ERP', platform: 'LinkedIn', status: 'Published', color: 'border-sky-400 bg-sky-50/80 text-sky-900' },
+  { id: 'cal-3', day: 17, title: 'Instagram: Testimoni Klien Manufaktur', platform: 'Instagram', status: 'Published', color: 'border-blue-400 bg-blue-50/80 text-blue-900' },
+  { id: 'cal-4', day: 19, title: 'Email Buletin: Edisi Khusus FinTech', platform: 'Email', status: 'Published', color: 'border-purple-400 bg-purple-50/80 text-purple-900' },
+  { id: 'cal-5', day: 24, title: 'TikTok: 3 Prinsip Keamanan API', platform: 'TikTok', status: 'In Production', color: 'border-amber-400 bg-amber-50/80 text-amber-900' },
+  { id: 'cal-6', day: 25, title: 'Instagram: Checklist Server Mingguan', platform: 'Instagram', status: 'Ready', color: 'border-emerald-400 bg-emerald-50/80 text-emerald-900' },
+  { id: 'cal-7', day: 27, title: 'TikTok: Demo Solusi Otomasi Dokumen', platform: 'TikTok', status: 'In Production', color: 'border-amber-400 bg-amber-50/80 text-amber-900' },
+  { id: 'cal-8', day: 28, title: 'Blog: Migrasi Core Banking Tanpa Downtime', platform: 'Blog', status: 'Draft', color: 'border-slate-400 bg-slate-100 text-slate-900' },
+  { id: 'cal-9', day: 31, title: 'Instagram: Sorotan Portofolio Telemedisin', platform: 'Instagram', status: 'Ready', color: 'border-emerald-400 bg-emerald-50/80 text-emerald-900' },
+];
+
+export const thisWeekStats = {
+  postsPlanned: 6,
+  ready: 3,
+  overdue: 1,
+};
+
+export const statusOverviewStats = {
+  unscheduled: 0,
+  idea: 2,
+  draft: 3,
+  inProduction: 3,
+  ready: 3,
+  scheduled: 4,
+  published: 9,
+};
+

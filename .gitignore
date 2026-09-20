@@ -15,6 +15,7 @@ femas_b64.txt
 generate_high_res_assets.py
 scripts/generate-mockups.js
 scripts/generate-all-25-mockups.js
+extract_frames.js
 
 # ── Environment & Secret Protection ────────────────────
 .env
