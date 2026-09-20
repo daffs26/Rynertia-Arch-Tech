@@ -5,6 +5,11 @@ import { routeMapEnToId, isValidLocale, defaultLocale } from '@/lib/i18n';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Bypass dashboard routes from i18n
+  if (pathname.startsWith('/dashboard')) {
+    return NextResponse.next();
+  }
+
   // 1. Root path -> redirect to default locale /id
   if (pathname === '/') {
     return NextResponse.redirect(new URL(`/${defaultLocale}`, request.url));
