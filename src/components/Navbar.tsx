@@ -109,7 +109,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 xl:gap-6">
+      <div className="max-w-7xl 2xl:max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-6 xl:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 lg:gap-3 xl:gap-6">
         {/* Brand Logo */}
         <Link
           href={`/${language}`}
@@ -134,15 +134,18 @@ export const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Nav Menu with Dynamic Active Blue Text */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2.5 2xl:gap-5 text-xs xl:text-[13px] 2xl:text-sm font-medium">
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-2 2xl:gap-3.5 text-xs xl:text-[13px] 2xl:text-sm font-medium">
           {navLinks.map(link => {
             const isActive = activeSection === link.id;
+            const isContact = link.id === 'contact';
             return (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setActiveSection(link.id)}
-                className={`relative px-1.5 xl:px-2 py-1 transition-all duration-200 whitespace-nowrap ${
+                className={`relative px-1.5 xl:px-2 2xl:px-2.5 py-1 transition-all duration-200 whitespace-nowrap ${
+                  isContact ? 'hidden 2xl:inline-block' : ''
+                } ${
                   isActive
                     ? 'text-blue-600 dark:text-blue-400 font-semibold drop-shadow-[0_1px_8px_rgba(37,99,235,0.2)]'
                     : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
@@ -158,16 +161,15 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Actions: Language Switcher + CTA */}
-        <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0 ml-auto lg:ml-2 xl:ml-4">
+        {/* Desktop Actions: Language Switcher + Theme Toggle + CTA */}
+        <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0 ml-auto lg:ml-1 xl:ml-3">
           {/* Flag Dropdown Language Switcher */}
           <LanguageSwitcher />
-          <ThemeToggle/>
-
+          <ThemeToggle />
 
           <Link
             href={`/${language}/#contact`}
-            className="px-4 xl:px-5 py-2 xl:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs xl:text-sm shadow-md shadow-blue-600/20 hover:shadow-blue-600/35 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-1.5 xl:gap-2 whitespace-nowrap shrink-0"
+            className="px-3.5 xl:px-4.5 py-2 xl:py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs xl:text-sm shadow-md shadow-blue-600/20 hover:shadow-blue-600/35 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center gap-1.5 xl:gap-2 whitespace-nowrap shrink-0"
           >
             <span className="whitespace-nowrap">{t('nav-cta')}</span>
             <ArrowRight className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0" />
