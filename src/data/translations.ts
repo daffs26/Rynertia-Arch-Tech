@@ -8,6 +8,7 @@ export interface TranslationDictionary {
   'nav-services': string;
   'nav-solutions': string;
   'nav-industries': string;
+  'nav-services-industries': string;
   'nav-news': string;
   'nav-organization': string;
   'nav-contact': string;
@@ -258,6 +259,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'nav-services': 'Services',
     'nav-solutions': 'Solutions',
     'nav-industries': 'Industries',
+    'nav-services-industries': 'Services & Industries',
     'nav-news': 'News',
     'nav-organization': 'Organization',
     'nav-contact': 'Contact',
@@ -511,6 +513,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'nav-services': 'Layanan',
     'nav-solutions': 'Solusi',
     'nav-industries': 'Industri',
+    'nav-services-industries': 'Layanan & Industri',
     'nav-news': 'Berita',
     'nav-organization': 'Organisasi',
     'nav-contact': 'Kontak',

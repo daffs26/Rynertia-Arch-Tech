@@ -16,23 +16,57 @@ export const Navbar: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(true);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
 
-  const handleDropdownEnter = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
-      dropdownTimeoutRef.current = null;
+  const aboutDropdownRef = useRef<HTMLDivElement>(null);
+  const aboutDropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const servicesDropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleAboutDropdownEnter = () => {
+    if (servicesDropdownTimeoutRef.current) {
+      clearTimeout(servicesDropdownTimeoutRef.current);
+      servicesDropdownTimeoutRef.current = null;
+    }
+    setServicesDropdownOpen(false);
+
+    if (aboutDropdownTimeoutRef.current) {
+      clearTimeout(aboutDropdownTimeoutRef.current);
+      aboutDropdownTimeoutRef.current = null;
     }
     setAboutDropdownOpen(true);
   };
 
-  const handleDropdownLeave = () => {
-    if (dropdownTimeoutRef.current) {
-      clearTimeout(dropdownTimeoutRef.current);
+  const handleAboutDropdownLeave = () => {
+    if (aboutDropdownTimeoutRef.current) {
+      clearTimeout(aboutDropdownTimeoutRef.current);
     }
-    dropdownTimeoutRef.current = setTimeout(() => {
+    aboutDropdownTimeoutRef.current = setTimeout(() => {
       setAboutDropdownOpen(false);
+    }, 250);
+  };
+
+  const handleServicesDropdownEnter = () => {
+    if (aboutDropdownTimeoutRef.current) {
+      clearTimeout(aboutDropdownTimeoutRef.current);
+      aboutDropdownTimeoutRef.current = null;
+    }
+    setAboutDropdownOpen(false);
+
+    if (servicesDropdownTimeoutRef.current) {
+      clearTimeout(servicesDropdownTimeoutRef.current);
+      servicesDropdownTimeoutRef.current = null;
+    }
+    setServicesDropdownOpen(true);
+  };
+
+  const handleServicesDropdownLeave = () => {
+    if (servicesDropdownTimeoutRef.current) {
+      clearTimeout(servicesDropdownTimeoutRef.current);
+    }
+    servicesDropdownTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
     }, 250);
   };
 
@@ -61,9 +95,22 @@ export const Navbar: React.FC = () => {
     },
   ];
 
+  const servicesSubLinks = [
+    {
+      href: `/${language}/layanan`,
+      id: 'services',
+      title: language === 'id' ? 'Layanan Rekayasa Sistem' : 'System Engineering Services',
+      desc: language === 'id' ? '4 pilar riset BPMN, arsitektur software, & UI/UX' : '4 pillars: BPMN research, software architecture, & UI/UX',
+    },
+    {
+      href: `/${language}/industri`,
+      id: 'industries',
+      title: language === 'id' ? 'Sektor Industri Terapan' : 'Applied Industry Sectors',
+      desc: language === 'id' ? 'Perbankan, rantai pasok, telekomunikasi, & kesehatan' : 'Banking, supply chain, telecommunications, & healthcare',
+    },
+  ];
+
   const primaryNavLinks = [
-    { href: `/${language}/#services`, id: 'services', key: 'nav-services' as const },
-    { href: `/${language}/#industries`, id: 'industries', key: 'nav-industries' as const },
     { href: `/${language}/#solutions`, id: 'solutions', key: 'nav-solutions' as const },
     { href: `/${language}/#portfolio`, id: 'portfolio', key: 'nav-portfolio' as const },
     { href: `/${language}/#news`, id: 'news', key: 'nav-news' as const },
@@ -149,19 +196,29 @@ export const Navbar: React.FC = () => {
   // Dropdown outside click & Escape key listener
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        if (dropdownTimeoutRef.current) {
-          clearTimeout(dropdownTimeoutRef.current);
+      if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
+        if (aboutDropdownTimeoutRef.current) {
+          clearTimeout(aboutDropdownTimeoutRef.current);
         }
         setAboutDropdownOpen(false);
+      }
+      if (servicesDropdownRef.current && !servicesDropdownRef.current.contains(event.target as Node)) {
+        if (servicesDropdownTimeoutRef.current) {
+          clearTimeout(servicesDropdownTimeoutRef.current);
+        }
+        setServicesDropdownOpen(false);
       }
     };
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        if (dropdownTimeoutRef.current) {
-          clearTimeout(dropdownTimeoutRef.current);
+        if (aboutDropdownTimeoutRef.current) {
+          clearTimeout(aboutDropdownTimeoutRef.current);
         }
         setAboutDropdownOpen(false);
+        if (servicesDropdownTimeoutRef.current) {
+          clearTimeout(servicesDropdownTimeoutRef.current);
+        }
+        setServicesDropdownOpen(false);
       }
     };
     document.addEventListener('mousedown', handleClickOutside);
@@ -169,8 +226,11 @@ export const Navbar: React.FC = () => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleKeyDown);
-      if (dropdownTimeoutRef.current) {
-        clearTimeout(dropdownTimeoutRef.current);
+      if (aboutDropdownTimeoutRef.current) {
+        clearTimeout(aboutDropdownTimeoutRef.current);
+      }
+      if (servicesDropdownTimeoutRef.current) {
+        clearTimeout(servicesDropdownTimeoutRef.current);
       }
     };
   }, []);
@@ -225,15 +285,15 @@ export const Navbar: React.FC = () => {
 
             {/* 2. Tentang Kami (Dropdown) */}
             <div
-              ref={dropdownRef}
+              ref={aboutDropdownRef}
               className="relative"
-              onMouseEnter={handleDropdownEnter}
-              onMouseLeave={handleDropdownLeave}
+              onMouseEnter={handleAboutDropdownEnter}
+              onMouseLeave={handleAboutDropdownLeave}
             >
               <button
                 onClick={() => {
-                  if (dropdownTimeoutRef.current) {
-                    clearTimeout(dropdownTimeoutRef.current);
+                  if (aboutDropdownTimeoutRef.current) {
+                    clearTimeout(aboutDropdownTimeoutRef.current);
                   }
                   setAboutDropdownOpen(prev => !prev);
                 }}
@@ -261,8 +321,8 @@ export const Navbar: React.FC = () => {
               {aboutDropdownOpen && (
                 <div
                   className="absolute top-full left-0 pt-2 w-72 z-50 animate-in fade-in zoom-in-95 duration-150"
-                  onMouseEnter={handleDropdownEnter}
-                  onMouseLeave={handleDropdownLeave}
+                  onMouseEnter={handleAboutDropdownEnter}
+                  onMouseLeave={handleAboutDropdownLeave}
                 >
                   <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800 rounded-2xl shadow-xl shadow-slate-900/10 p-2">
                     {aboutSubLinks.map(sub => (
@@ -270,8 +330,8 @@ export const Navbar: React.FC = () => {
                         key={sub.href}
                         href={sub.href}
                         onClick={() => {
-                          if (dropdownTimeoutRef.current) {
-                            clearTimeout(dropdownTimeoutRef.current);
+                          if (aboutDropdownTimeoutRef.current) {
+                            clearTimeout(aboutDropdownTimeoutRef.current);
                           }
                           setAboutDropdownOpen(false);
                           setActiveSection(sub.id);
@@ -291,7 +351,75 @@ export const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* 3. Primary Nav Links (Layanan, Industri, Solusi, Portofolio, Berita, Kontak) */}
+            {/* 3. Layanan & Industri (Dropdown) */}
+            <div
+              ref={servicesDropdownRef}
+              className="relative"
+              onMouseEnter={handleServicesDropdownEnter}
+              onMouseLeave={handleServicesDropdownLeave}
+            >
+              <button
+                onClick={() => {
+                  if (servicesDropdownTimeoutRef.current) {
+                    clearTimeout(servicesDropdownTimeoutRef.current);
+                  }
+                  setServicesDropdownOpen(prev => !prev);
+                }}
+                aria-expanded={servicesDropdownOpen}
+                className={`relative px-2 xl:px-2.5 py-1.5 transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 cursor-pointer rounded-lg text-left group ${
+                  activeSection === 'services' || activeSection === 'industries'
+                    ? 'text-blue-600 dark:text-blue-400 font-semibold drop-shadow-[0_1px_8px_rgba(37,99,235,0.2)]'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400'
+                }`}
+              >
+                <span className="text-[11px] xl:text-[12px] font-bold tracking-wider uppercase block">
+                  {t('nav-services-industries')}
+                </span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesDropdownOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : 'text-slate-400 dark:text-slate-500'
+                  }`}
+                />
+                {(activeSection === 'services' || activeSection === 'industries') && (
+                  <span className="absolute -bottom-1 left-2 right-2 h-0.5 bg-blue-600 rounded-full animate-in fade-in zoom-in-95 duration-200" />
+                )}
+              </button>
+
+              {/* Dropdown Floating Menu Panel with seamless padding bridge */}
+              {servicesDropdownOpen && (
+                <div
+                  className="absolute top-full left-0 pt-2 w-72 z-50 animate-in fade-in zoom-in-95 duration-150"
+                  onMouseEnter={handleServicesDropdownEnter}
+                  onMouseLeave={handleServicesDropdownLeave}
+                >
+                  <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-800 rounded-2xl shadow-xl shadow-slate-900/10 p-2">
+                    {servicesSubLinks.map(sub => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => {
+                          if (servicesDropdownTimeoutRef.current) {
+                            clearTimeout(servicesDropdownTimeoutRef.current);
+                          }
+                          setServicesDropdownOpen(false);
+                          setActiveSection(sub.id);
+                        }}
+                        className="block p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/80 transition-colors group"
+                      >
+                        <span className="block text-xs sm:text-[13px] font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {sub.title}
+                        </span>
+                        <span className="block text-[11px] text-slate-500 dark:text-slate-400 leading-snug mt-0.5">
+                          {sub.desc}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 4. Primary Nav Links (Solusi, Portofolio, Berita, Kontak) */}
             {primaryNavLinks.map(link => {
               const isActive = activeSection === link.id;
               const isContact = link.id === 'contact';
@@ -301,7 +429,7 @@ export const Navbar: React.FC = () => {
                   href={link.href}
                   onClick={() => setActiveSection(link.id)}
                   className={`relative px-2 xl:px-2.5 py-1.5 transition-all duration-200 whitespace-nowrap text-left group flex items-center ${
-                    isContact ? 'hidden 2xl:flex' : ''
+                    isContact ? 'hidden xl:flex' : ''
                   } ${
                     isActive
                       ? 'text-blue-600 dark:text-blue-400 font-semibold drop-shadow-[0_1px_8px_rgba(37,99,235,0.2)]'
@@ -393,6 +521,41 @@ export const Navbar: React.FC = () => {
               {mobileAboutOpen && (
                 <div className="p-2 space-y-1 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
                   {aboutSubLinks.map(sub => (
+                    <Link
+                      key={sub.href}
+                      href={sub.href}
+                      onClick={() => {
+                        setActiveSection(sub.id);
+                        setMobileMenuOpen(false);
+                      }}
+                      className="block px-3 py-2 rounded-lg text-xs hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
+                    >
+                      <span className="font-bold block text-slate-800 dark:text-slate-200">{sub.title}</span>
+                      <span className="text-[11px] text-slate-500 dark:text-slate-400 block">{sub.desc}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Layanan & Industri Accordion in Mobile */}
+            <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden">
+              <button
+                onClick={() => setMobileServicesOpen(prev => !prev)}
+                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 bg-slate-50/70 dark:bg-slate-900/60 min-h-[48px]"
+              >
+                <span className="block font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
+                  {t('nav-services-industries')}
+                </span>
+                <ChevronDown
+                  className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
+                    mobileServicesOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
+                  }`}
+                />
+              </button>
+              {mobileServicesOpen && (
+                <div className="p-2 space-y-1 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+                  {servicesSubLinks.map(sub => (
                     <Link
                       key={sub.href}
                       href={sub.href}
