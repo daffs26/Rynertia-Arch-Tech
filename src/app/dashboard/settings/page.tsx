@@ -236,7 +236,7 @@ export default function SettingsPage() {
         <div className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
           <div>
             <h2 className="text-base font-bold text-slate-900">
-              Integrasi Google Places API (New) & SerpAPI (PRD 19.2)
+              Integrasi Google Places API (New) &amp; SerpAPI
             </h2>
             <p className="text-xs text-slate-500">
               Kunci API dan pengaturan pemindaian otomatis untuk modul Business Discovery.
@@ -305,7 +305,7 @@ export default function SettingsPage() {
         <div className="bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8 shadow-xs space-y-6">
           <div>
             <h2 className="text-base font-bold text-slate-900">
-              Keamanan Konsol Administrator (PRD 18)
+              Keamanan Konsol Administrator
             </h2>
             <p className="text-xs text-slate-500">
               Sistem menggunakan Single-Role Administrator untuk mengontrol seluruh hak akses konten dan pesan.

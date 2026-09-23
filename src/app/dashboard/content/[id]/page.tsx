@@ -98,7 +98,7 @@ export default function EditContentPage({
               </span>
             </div>
             <p className="text-xs text-slate-500 font-normal mt-0.5">
-              PRD 16.1.2: Perbarui isi, ubah siklus publikasi, atau tinjau tampilan
+              Perbarui isi, ubah siklus publikasi, atau tinjau tampilan
             </p>
           </div>
         </div>
@@ -273,11 +273,11 @@ export default function EditContentPage({
             />
           </div>
 
-          {/* PRD 17: Content Lifecycle Selector */}
+          {/* Content Lifecycle Selector */}
           <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
               <Info className="w-4 h-4 text-blue-600" />
-              <span>Siklus Hidup Konten (PRD Seksi 17)</span>
+              <span>Siklus Hidup Konten</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

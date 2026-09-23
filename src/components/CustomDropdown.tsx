@@ -84,7 +84,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         className={`w-full px-4 py-3 rounded-2xl flex items-center justify-between gap-3 text-xs font-medium transition-all duration-200 focus:outline-none ${
           isDark
             ? 'bg-slate-800/90 border border-slate-700 text-slate-200 hover:border-slate-600 focus:border-blue-500 shadow-sm'
-            : 'bg-white border border-slate-200/90 text-slate-800 hover:border-blue-300 focus:border-blue-600 shadow-[0_2px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_0_0_3px_rgba(37,99,235,0.12)]'
+            : 'bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-blue-300 dark:hover:border-slate-600 focus:border-blue-600 shadow-[0_2px_12px_rgba(0,0,0,0.03)] focus:shadow-[0_0_0_3px_rgba(37,99,235,0.12)]'
         } ${isOpen ? (isDark ? 'border-blue-500 ring-2 ring-blue-500/20' : 'border-blue-500 ring-2 ring-blue-500/15') : ''} ${buttonClassName}`}
       >
         <div className="flex items-center gap-2.5 truncate">
@@ -97,7 +97,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                 ? 'text-slate-400 font-normal'
                 : isDark
                 ? 'text-slate-100 font-medium'
-                : 'text-slate-800 font-medium'
+                : 'text-slate-800 dark:text-slate-100 font-medium'
             }`}
           >
             {selectedOption ? selectedOption.label : placeholder}
@@ -131,7 +131,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             className={`absolute z-50 left-0 right-0 mt-2 p-2 rounded-2xl border ${
               isDark
                 ? 'bg-slate-900 border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)]'
-                : 'bg-white border-slate-200/90 shadow-[0_20px_45px_-8px_rgba(15,23,42,0.16),0_4px_16px_rgba(0,0,0,0.06)]'
+                : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-700 shadow-[0_20px_45px_-8px_rgba(15,23,42,0.16),0_4px_16px_rgba(0,0,0,0.06)]'
             } ${menuClassName}`}
             role="listbox"
           >
@@ -152,10 +152,10 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                       isSelected
                         ? isDark
                           ? 'bg-blue-600/20 text-blue-400 font-medium'
-                          : 'bg-blue-50 text-blue-600 font-medium'
+                          : 'bg-blue-50 dark:bg-blue-600/25 text-blue-600 dark:text-blue-400 font-medium'
                         : isDark
                         ? 'text-slate-300 hover:bg-slate-800 hover:text-white font-normal'
-                        : 'text-slate-700 hover:bg-blue-50/70 hover:text-blue-600 font-normal'
+                        : 'text-slate-700 dark:text-slate-300 hover:bg-blue-50/70 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 font-normal'
                     }`}
                   >
                     <div className="flex items-center gap-2.5 truncate">

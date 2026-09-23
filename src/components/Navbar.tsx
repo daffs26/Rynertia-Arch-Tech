@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ThemeToggle } from './ThemeToggle';
+
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -106,7 +108,7 @@ export const Navbar: React.FC = () => {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
+    <header className="sticky top-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 xl:gap-6">
         {/* Brand Logo */}
         <Link
@@ -122,7 +124,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <div>
-            <span className="text-base sm:text-xl font-bold tracking-wider text-slate-900">
+            <span className="text-base sm:text-xl font-bold tracking-wider text-slate-900 dark:text-white transition-colors">
               RYNERTIA
             </span>
             <span className="text-[9px] sm:text-xs block font-semibold tracking-widest text-gradient-blue">
@@ -142,8 +144,8 @@ export const Navbar: React.FC = () => {
                 onClick={() => setActiveSection(link.id)}
                 className={`relative px-1.5 xl:px-2 py-1 transition-all duration-200 whitespace-nowrap ${
                   isActive
-                    ? 'text-blue-600 font-semibold drop-shadow-[0_1px_8px_rgba(37,99,235,0.2)]'
-                    : 'text-slate-600 hover:text-blue-600 font-medium'
+                    ? 'text-blue-600 dark:text-blue-400 font-semibold drop-shadow-[0_1px_8px_rgba(37,99,235,0.2)]'
+                    : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
                 }`}
               >
                 <span>{t(link.key)}</span>
@@ -160,6 +162,8 @@ export const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center gap-2.5 xl:gap-3.5 shrink-0 ml-auto lg:ml-2 xl:ml-4">
           {/* Flag Dropdown Language Switcher */}
           <LanguageSwitcher />
+          <ThemeToggle/>
+
 
           <Link
             href={`/${language}/#contact`}
@@ -174,17 +178,18 @@ export const Navbar: React.FC = () => {
         <div className="flex items-center gap-2 lg:hidden">
           {/* Flag Dropdown Language Switcher */}
           <LanguageSwitcher />
+          <ThemeToggle/>
 
           {/* Accessible Hamburger Button (44x44px hitbox) */}
           <button
             onClick={toggleMobileMenu}
-            className="w-10 h-10 sm:w-11 sm:h-11 min-w-[40px] min-h-[40px] rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 active:scale-95 transition flex items-center justify-center cursor-pointer border border-slate-200/80"
+            className="w-10 h-10 sm:w-11 sm:h-11 min-w-[40px] min-h-[40px] rounded-xl bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 active:scale-95 transition flex items-center justify-center cursor-pointer border border-slate-200/80 dark:border-slate-800"
             aria-label="Toggle Menu"
           >
             {mobileMenuOpen ? (
-              <X className="w-5 h-5 text-slate-800" />
+              <X className="w-5 h-5 text-slate-800 dark:text-slate-200" />
             ) : (
-              <Menu className="w-5 h-5 text-slate-800" />
+              <Menu className="w-5 h-5 text-slate-800 dark:text-slate-200" />
             )}
           </button>
         </div>
@@ -192,7 +197,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-5 py-5 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-5 py-5 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
           <div className="space-y-1">
             {navLinks.map(link => {
               const isActive = activeSection === link.id;
@@ -206,14 +211,14 @@ export const Navbar: React.FC = () => {
                   }}
                   className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm transition min-h-[48px] ${
                     isActive
-                      ? 'bg-blue-50 text-blue-600 font-bold border border-blue-200/80 shadow-xs'
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-blue-600 font-medium'
+                      ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-bold border border-blue-200/80 dark:border-blue-900/60 shadow-xs'
+                      : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
                   }`}
                 >
                   <span>{t(link.key)}</span>
                   <ArrowRight
                     className={`w-4 h-4 transition-transform duration-200 ${
-                      isActive ? 'text-blue-600 translate-x-1' : 'text-slate-400'
+                      isActive ? 'text-blue-600 dark:text-blue-400 translate-x-1' : 'text-slate-400 dark:text-slate-500'
                     }`}
                   />
                 </Link>
@@ -221,7 +226,7 @@ export const Navbar: React.FC = () => {
             })}
           </div>
 
-          <div className="pt-2 border-t border-slate-100 space-y-3">
+          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3">
             <Link
               href={`/${language}/#contact`}
               onClick={() => setMobileMenuOpen(false)}
@@ -234,7 +239,7 @@ export const Navbar: React.FC = () => {
             <div className="text-center pt-2">
               <a
                 href="mailto:contact@rynertia.tech"
-                className="text-xs font-semibold text-slate-500 hover:text-blue-600 transition"
+                className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
               >
                 contact@rynertia.tech
               </a>

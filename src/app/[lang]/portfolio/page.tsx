@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
   ArrowRight,
@@ -14,8 +15,6 @@ import { Footer } from '@/components/Footer';
 import { ClientMarquee } from '@/components/ClientMarquee';
 import {
   FadeIn,
-  StaggerContainer,
-  StaggerItem,
   ScrollProgressBar,
   BackToTopButton,
 } from '@/components/MotionWrapper';
@@ -149,16 +148,41 @@ export default function PortfolioGalleryPage() {
         </div>
 
         {/* Portfolio 3-Column Grid */}
-        <StaggerContainer
-          staggerDelay={0.06}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-        >
-          {filteredItems.map(project => (
-            <StaggerItem key={project.id}>
-              <ProjectCard project={project} />
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={selectedCategory}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.04,
+                },
+              },
+              exit: { opacity: 0, transition: { duration: 0.15 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          >
+            {filteredItems.map(project => (
+              <motion.div
+                key={project.id}
+                variants={{
+                  hidden: { opacity: 0, y: 16 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+                  },
+                }}
+              >
+                <ProjectCard project={project} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
 
         {filteredItems.length === 0 && (
           <div className="text-center py-16">

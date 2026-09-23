@@ -21,13 +21,13 @@ export const Portfolio: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-14 sm:py-24 bg-slate-50 relative border-t border-b border-slate-200/80"
+      className="py-14 sm:py-24 bg-slate-50 dark:bg-slate-950 relative border-t border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <FadeIn direction="up">
           <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
-            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               {language === 'id' ? (
                 <>
                   Kemitraan Strategis &amp; <span className="text-gradient-blue">Hasil Nyata Klien Kami</span>
@@ -38,7 +38,7 @@ export const Portfolio: React.FC = () => {
                 </>
               )}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
               {language === 'id'
                 ? 'Bukti nyata bagaimana kolaborasi erat dan riset proses bisnis mendalam melahirkan dampak digital bagi para mitra.'
                 : t('port-subtitle')}

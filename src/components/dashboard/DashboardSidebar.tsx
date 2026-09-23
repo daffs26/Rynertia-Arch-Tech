@@ -9,7 +9,6 @@ import {
   FolderKanban,
   Layers,
   Kanban,
-  Clock,
   TrendingUp,
   MessageSquare,
   Compass,
@@ -63,12 +62,6 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       name: 'Production Board',
       href: '/dashboard/content',
       icon: Kanban,
-      exact: false,
-    },
-    {
-      name: 'Social Schedule',
-      href: '/dashboard/schedule',
-      icon: Clock,
       exact: false,
     },
     {

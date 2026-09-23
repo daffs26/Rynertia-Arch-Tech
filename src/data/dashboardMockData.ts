@@ -35,14 +35,14 @@ export interface DashboardMessage {
 
 export type BusinessCategory = 'Perusahaan' | 'Startup' | 'UMKM' | 'Pebisnis' | 'Pedagang';
 
-// PRD 19.3 Website Status
+// Website Status
 export type WebsiteStatus =
   | 'Unknown'
   | 'Has Website'
   | 'No Website Candidate'
   | 'Needs Manual Verification';
 
-// PRD 19.5 Verification status
+// Verification status
 export type VerificationStatus =
   | 'Pending Verification'
   | 'Verified No Website'
@@ -53,7 +53,7 @@ export interface BusinessCandidate {
   id: string;
   // 1. Business name
   name: string;
-  // 2. Business category (PRD 19.1)
+  // 2. Business category
   category: BusinessCategory;
   // 3. Address
   address: string;
@@ -66,7 +66,7 @@ export interface BusinessCandidate {
   websiteUrl: string | null;
   // 7. Search result URL jika tersedia (SerpAPI)
   searchResultUrl: string | null;
-  // 8. Website status (PRD 19.3)
+  // 8. Website status
   websiteStatus: WebsiteStatus;
   // 9. Source
   source: 'Google Places (New)' | 'Google Places + SerpAPI' | 'Manual Input';
@@ -297,7 +297,7 @@ export const initialMessagesData: DashboardMessage[] = [
   },
 ];
 
-// PRD 19.5 Candidates with 11 mandatory fields & PRD 19.3 Website Statuses
+// Candidates with 11 mandatory fields & Website Statuses
 export const initialBusinessCandidates: BusinessCandidate[] = [
   {
     id: 'cand-01',
@@ -460,7 +460,7 @@ export const initialNeedsCreationData: NeedsCreationItem[] = [
     title: 'Arsitektur Multi-Cloud: Strategi Efisiensi FinOps',
     platform: 'Instagram',
     format: 'Reel · Seri Tech Cloud',
-    date: '21 Agu',
+    date: 'Aug 21',
     status: 'Overdue',
   },
   {
@@ -468,7 +468,7 @@ export const initialNeedsCreationData: NeedsCreationItem[] = [
     title: 'Migrasi Core Banking ke Microservices Tanpa Downtime',
     platform: 'TikTok',
     format: 'Short Video · Case Study',
-    date: '27 Agu',
+    date: 'Aug 27',
     status: 'In Production',
   },
   {
@@ -476,7 +476,7 @@ export const initialNeedsCreationData: NeedsCreationItem[] = [
     title: 'Panduan Praktis Audit Keamanan ISO 27001 bagi Startup',
     platform: 'Blog',
     format: 'Artikel Teknis · Solusi Keamanan',
-    date: '28 Agu',
+    date: 'Aug 28',
     status: 'Draft',
   },
   {
@@ -484,7 +484,7 @@ export const initialNeedsCreationData: NeedsCreationItem[] = [
     title: 'Peluncuran Paket Modernisasi Sistem ERP Manufaktur',
     platform: 'Instagram',
     format: 'Story · Kampanye Q3',
-    date: '1 Sep',
+    date: 'Sep 1',
     status: 'Idea',
   },
   {
@@ -492,7 +492,7 @@ export const initialNeedsCreationData: NeedsCreationItem[] = [
     title: '5 Kesalahan Fatal dalam Implementasi Pipeline CI/CD Enterprise',
     platform: 'LinkedIn',
     format: 'Dokumen Carousel · DevOps',
-    date: '2 Sep',
+    date: 'Sep 2',
     status: 'Draft',
   },
 ];
@@ -512,7 +512,7 @@ export const initialReadyToPublishData: ReadyToPublishItem[] = [
     title: 'Checklist Pemeliharaan Server Cloud Mingguan',
     platform: 'Instagram',
     format: 'Carousel · Panduan SysAdmin',
-    date: '25 Agu',
+    date: 'Aug 25',
     status: 'Ready',
   },
   {
@@ -520,7 +520,7 @@ export const initialReadyToPublishData: ReadyToPublishItem[] = [
     title: 'Template Standar Arsitektur Database Terdistribusi',
     platform: 'Email Newsletter',
     format: 'Buletin Bulanan · Konsultasi',
-    date: '29 Agu',
+    date: 'Aug 29',
     status: 'Ready',
   },
   {
@@ -528,7 +528,7 @@ export const initialReadyToPublishData: ReadyToPublishItem[] = [
     title: 'Sorotan Portofolio: Platform Telemedisin Skala 500k Pengguna',
     platform: 'Instagram',
     format: 'Carousel · Studi Kasus Klien',
-    date: '31 Agu',
+    date: 'Aug 31',
     status: 'Ready',
   },
 ];

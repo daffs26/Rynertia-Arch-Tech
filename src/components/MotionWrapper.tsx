@@ -45,7 +45,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
     <motion.div
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: '-50px' }}
+      viewport={{ once, margin: '0px' }}
       transition={{
         duration,
         delay,
@@ -75,7 +75,7 @@ export const StaggerContainer: React.FC<StaggerContainerProps> = ({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once, margin: '-50px' }}
+      viewport={{ once, margin: '0px' }}
       variants={{
         hidden: {},
         visible: {

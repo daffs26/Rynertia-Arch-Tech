@@ -127,7 +127,7 @@ export default function ContentManagementPage() {
     document.body.removeChild(link);
   };
 
-  // Lifecycle Action Handlers (PRD 16.1.2: Publish, Unpublish, Archive, Delete)
+  // Lifecycle Action Handlers (Publish, Unpublish, Archive, Delete)
   const handlePublish = (id: string) => {
     setContents((prev) =>
       prev.map((c) =>
@@ -171,7 +171,7 @@ export default function ContentManagementPage() {
             Content <span className="text-gradient-blue">Management</span>
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed">
-            Kelola siklus hidup konten digital (Draft, Published, Archived) sesuai standar PRD Seksi 16.1.2 & 17.
+            Kelola siklus hidup konten digital (Draft, Published, Archived) secara terstruktur dan terpadu.
           </p>
         </div>
 
@@ -481,7 +481,7 @@ export default function ContentManagementPage() {
                           </button>
                         </div>
 
-                        {/* Dropdown Menu (PRD 16.1.2: Publish, Unpublish, Archive, Delete) */}
+                        {/* Dropdown Menu (Publish, Unpublish, Archive, Delete) */}
                         {isDropdownOpen && (
                           <>
                             <div
@@ -565,7 +565,7 @@ export default function ContentManagementPage() {
         </div>
       </div>
 
-      {/* Preview Modal (PRD 16.1.2 Read & Preview) */}
+      {/* Preview Modal (Read & Preview) */}
       {previewItem && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
           <div className="bg-white rounded-2xl border border-slate-200 max-w-xl w-full p-6 shadow-2xl space-y-4 max-h-[90vh] overflow-y-auto">

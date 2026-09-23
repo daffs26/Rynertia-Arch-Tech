@@ -26,7 +26,7 @@ export const Services: React.FC = () => {
   };
 
   return (
-    <section id="services" className="relative bg-slate-50/70 pt-16 sm:pt-20 pb-20 sm:pb-24 overflow-hidden">
+    <section id="services" className="relative bg-slate-50/70 dark:bg-slate-950/70 pt-16 sm:pt-20 pb-20 sm:pb-24 overflow-hidden">
       {/* Dark Upper Backdrop with Neon Flow Line (Matches Image 2) */}
       <div className="absolute top-0 left-0 right-0 h-[400px] sm:h-[440px] bg-slate-950 -z-0 overflow-hidden">
         {/* Subtle radial glow */}
@@ -88,7 +88,7 @@ export const Services: React.FC = () => {
           {servicePillars.map(pillar => (
             <StaggerItem key={pillar.pillar}>
                 <div
-                  className="relative pt-14 pb-7 px-6 bg-white rounded-2xl border border-slate-200/90 shadow-xl hover:shadow-2xl hover:border-slate-300 transition-all duration-300 flex flex-col justify-between h-full text-center group hover:-translate-y-2"
+                  className="relative pt-14 pb-7 px-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/90 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between h-full text-center group hover:-translate-y-2"
                 >
                   {/* Floating Overhang Concentric Halo Badge (Matches Image 2 & Pillar 02) */}
                   <div className="absolute -top-10 left-1/2 -translate-x-1/2 z-20">
@@ -112,18 +112,18 @@ export const Services: React.FC = () => {
                     </div>
 
                     {/* Centered Title */}
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2.5 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                       {t(pillar.titleKey)}
                     </h3>
 
                     {/* Centered Description */}
-                    <p className="text-xs text-slate-600 leading-relaxed mb-6 min-h-[50px] px-1">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-6 min-h-[50px] px-1">
                       {t(pillar.descKey)}
                     </p>
                   </div>
 
                   {/* Solid Button at Bottom Center (Matches Image 2) */}
-                  <div className="pt-3 border-t border-slate-100">
+                  <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
                     <a
                       href="#contact"
                       className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-700 active:scale-95 shadow-md shadow-blue-600/25 hover:shadow-lg hover:shadow-blue-600/35 transition-all duration-200 w-full group/btn min-h-[44px]"
@@ -142,7 +142,7 @@ export const Services: React.FC = () => {
           <div className="mt-12 sm:mt-16 text-center">
             <Link
               href={`/${language}/${language === 'en' ? 'services' : 'layanan'}`}
-              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 bg-white hover:bg-blue-50/60 border border-slate-200/90 hover:border-blue-300 px-6 py-3 rounded-xl shadow-xs transition-all group"
+              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 bg-white dark:bg-slate-900 hover:bg-blue-50/60 dark:hover:bg-slate-800 border border-slate-200/90 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500 px-6 py-3 rounded-xl shadow-xs transition-all group"
             >
               <span>{language === 'id' ? 'Pelajari Rincian Masalah & Nilai Tiap Layanan' : 'Explore Detailed Problems & Value for Each Service'}</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

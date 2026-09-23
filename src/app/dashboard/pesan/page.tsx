@@ -98,7 +98,7 @@ export default function MessagesPage() {
             Pesan Pengunjung &amp; <span className="text-gradient-blue">Prospek Klien</span>
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-            PRD 16.1.3: Kelola pertanyaan masuk dari formulir kontak web publik Rynertia Arc Tech.
+            Kelola pertanyaan masuk dari formulir kontak web publik Rynertia Arc Tech.
           </p>
         </div>
 
@@ -312,7 +312,7 @@ export default function MessagesPage() {
                 </div>
               </div>
 
-              {/* Prepared Reply Area (PRD 16.1.3) */}
+              {/* Prepared Reply Area */}
               <div className="p-4 border-t border-slate-100 bg-slate-50/50 space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
@@ -333,7 +333,7 @@ export default function MessagesPage() {
 
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] text-slate-400 italic">
-                    Sesuai PRD 16.1.3: Struktur UI disiapkan untuk aktivasi backend SMTP.
+                    Struktur antarmuka disiapkan untuk aktivasi backend SMTP.
                   </span>
                   <button
                     type="button"

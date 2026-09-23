@@ -215,16 +215,16 @@ export const ClientMarquee: React.FC = () => {
   const renderCard = (client: ClientBrand, idx: number, prefix: string) => (
     <div
       key={`${prefix}-${client.id}-${idx}`}
-      className="w-48 sm:w-56 h-16 sm:h-20 px-4 sm:px-5 rounded-2xl bg-white border border-slate-200/85 shadow-sm hover:shadow-md hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3.5 shrink-0 cursor-pointer group select-none"
+      className="w-48 sm:w-56 h-16 sm:h-20 px-4 sm:px-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/85 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-blue-400 dark:hover:border-blue-600 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3.5 shrink-0 cursor-pointer group select-none"
     >
       <div className="group-hover:scale-110 transition-transform duration-300 shrink-0">
         {client.logo}
       </div>
       <div className="flex flex-col text-left truncate">
-        <span className="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-blue-600 transition-colors tracking-tight truncate">
+        <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors tracking-tight truncate">
           {client.name}
         </span>
-        <span className="text-[9px] sm:text-[10px] text-slate-600 font-medium font-mono truncate">
+        <span className="text-[9px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-medium font-mono truncate">
           {client.category}
         </span>
       </div>
@@ -235,10 +235,10 @@ export const ClientMarquee: React.FC = () => {
     <div className="py-12 relative overflow-hidden">
       {/* Header Label & Title */}
       <div className="text-center max-w-3xl mx-auto px-4 mb-10 space-y-2.5">
-        <p className="text-xs sm:text-sm font-extrabold tracking-widest text-blue-600 uppercase font-mono">
+        <p className="text-xs sm:text-sm font-extrabold tracking-widest text-blue-600 dark:text-blue-400 uppercase font-mono">
           {language === 'id' ? 'Kemitraan Kami' : 'Our Partners'}
         </p>
-        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+        <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
           {language === 'id' ? (
             <>
               Tumbuh &amp; Berkolaborasi Bersama <span className="text-gradient-blue">Mitra Terbaik</span>
@@ -250,7 +250,7 @@ export const ClientMarquee: React.FC = () => {
           )}
         </h2>
         {isSplit && (
-          <p className="text-sm sm:text-base text-slate-600 font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium max-w-xl mx-auto leading-relaxed">
             {language === 'id'
               ? `${clients.length}+ perusahaan & inisiatif industri telah mempercayakan transformasi digital bersama kami`
               : `${clients.length}+ industry enterprises trust our digital engineering`}
@@ -261,10 +261,10 @@ export const ClientMarquee: React.FC = () => {
       {/* Infinite Horizontal Marquee Container with Gradient Edge Fade */}
       <div className="relative w-full overflow-hidden space-y-4 sm:space-y-5">
         {/* Left Edge Gradient Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-r from-slate-50 dark:from-slate-950 via-slate-50/80 dark:via-slate-950/80 to-transparent z-10 pointer-events-none" />
 
         {/* Right Edge Gradient Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-44 bg-gradient-to-l from-slate-50 dark:from-slate-950 via-slate-50/80 dark:via-slate-950/80 to-transparent z-10 pointer-events-none" />
 
         {/* Baris 1 (Atas): Bergerak dari kanan ke kiri */}
         <div className="animate-marquee flex items-center gap-4 sm:gap-6 py-1 px-4">

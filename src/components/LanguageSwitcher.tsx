@@ -108,14 +108,14 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-label="Select Language"
-        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-slate-200/90 bg-white hover:bg-slate-50 hover:border-slate-300 text-slate-800 transition-all duration-200 shadow-2xs hover:shadow-xs focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 active:scale-97 cursor-pointer shrink-0"
+        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-800 dark:text-slate-100 transition-all duration-200 shadow-2xs hover:shadow-xs focus:outline-hidden focus:ring-2 focus:ring-blue-500/20 active:scale-97 cursor-pointer shrink-0"
       >
         <span className="flex items-center shrink-0">{currentLang.flag}</span>
-        <span className="text-xs font-bold tracking-wider text-slate-800 shrink-0">{currentLang.label}</span>
+        <span className="text-xs font-bold tracking-wider text-slate-800 dark:text-slate-100 shrink-0">{currentLang.label}</span>
         <svg
           viewBox="0 0 10 6"
-          className={`w-2 h-2 fill-slate-600 transition-transform duration-200 shrink-0 ${
-            isOpen ? 'rotate-180 fill-blue-600' : ''
+          className={`w-2 h-2 fill-slate-600 dark:fill-slate-300 transition-transform duration-200 shrink-0 ${
+            isOpen ? 'rotate-180 fill-blue-600 dark:fill-blue-400' : ''
           }`}
           aria-hidden="true"
         >
@@ -128,7 +128,7 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
         <div
           role="listbox"
           aria-label="Languages"
-          className="absolute right-0 top-full mt-2 w-48 p-1.5 bg-white border border-slate-200/90 rounded-2xl shadow-xl shadow-slate-900/10 z-50 animate-in fade-in zoom-in-95 duration-150"
+          className="absolute right-0 top-full mt-2 w-48 p-1.5 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl shadow-xl shadow-slate-900/10 dark:shadow-black/50 z-50 animate-in fade-in zoom-in-95 duration-150"
         >
           <div className="space-y-0.5">
             {languages.map(lang => {
@@ -145,8 +145,8 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
                   }}
                   className={`w-full px-3 py-2 rounded-xl flex items-center justify-between text-xs transition-colors duration-150 cursor-pointer ${
                     isSelected
-                      ? 'bg-slate-50/90 text-slate-900 font-semibold'
-                      : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 font-medium'
+                      ? 'bg-slate-50/90 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
+                      : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white font-medium'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
@@ -156,7 +156,7 @@ export const LanguageSwitcher: React.FC<{ className?: string }> = ({ className =
 
                   {/* Upward chevron on selected option as displayed in Image 3 */}
                   {isSelected && (
-                    <ChevronUp className="w-3.5 h-3.5 text-slate-600 shrink-0" />
+                    <ChevronUp className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300 shrink-0" />
                   )}
                 </button>
               );

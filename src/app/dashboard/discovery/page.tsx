@@ -41,14 +41,14 @@ export default function BusinessDiscoveryPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'table' | 'grid'>('table');
 
-  // Search Criteria Inputs (PRD 19.4)
+  // Search Criteria Inputs
   const [criteriaKeyword, setCriteriaKeyword] = useState('Distributor Baja Industri');
   const [criteriaLocation, setCriteriaLocation] = useState('Surabaya & Sidoarjo');
   const [criteriaCategory, setCriteriaCategory] = useState<BusinessCategory>('Perusahaan');
   const [isScanning, setIsScanning] = useState(false);
   const [scanStep, setScanStep] = useState('');
 
-  // Selected candidate for Manual Verification Modal (PRD 19.4 & 19.5)
+  // Selected candidate for Manual Verification Modal
   const [activeCandidate, setActiveCandidate] = useState<BusinessCandidate | null>(null);
   const [verificationFeedback, setVerificationFeedback] = useState<string | null>(null);
 
@@ -82,7 +82,7 @@ export default function BusinessDiscoveryPage() {
     });
   }, [candidates, selectedCategory, selectedWebsiteStatus, searchQuery]);
 
-  // Simulate Pipeline Run (PRD 19.4: Google Places API (New) -> SerpAPI -> Web Presence Assessment)
+  // Simulate Pipeline Run (Google Places API (New) -> SerpAPI -> Web Presence Assessment)
   const handleRunPipeline = () => {
     setIsScanning(true);
     setScanStep('1/3 Menghubungi Google Places API (New) Text Search...');
@@ -124,7 +124,7 @@ export default function BusinessDiscoveryPage() {
     }, 2600);
   };
 
-  // Manual Verification Action (PRD 19.4 & 19.5)
+  // Manual Verification Action
   const handleUpdateVerification = (
     candId: string,
     nextVerif: VerificationStatus,
@@ -200,7 +200,7 @@ export default function BusinessDiscoveryPage() {
     document.body.removeChild(link);
   };
 
-  // Status Badge Rendering (PRD 19.3)
+  // Status Badge Rendering
   const getWebsiteStatusBadge = (status: WebsiteStatus) => {
     switch (status) {
       case 'No Website Candidate':
@@ -274,13 +274,13 @@ export default function BusinessDiscoveryPage() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-semibold mb-2 shadow-2xs">
             <Compass className="w-3.5 h-3.5 text-blue-600 animate-spin-slow" />
-            <span className="font-mono uppercase tracking-wider text-[11px]">PRD Seksi 19: Business Discovery</span>
+            <span className="font-mono uppercase tracking-wider text-[11px]">Business Discovery Engine</span>
           </div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             Penemuan &amp; <span className="text-gradient-blue">Verifikasi Kandidat Bisnis</span>
           </h1>
           <p className="mt-1 text-xs sm:text-sm text-slate-600 max-w-3xl leading-relaxed font-normal">
-            Integrasi Google Places API (New) + SerpAPI untuk mendeteksi entitas bisnis dengan indikasi web presence rendah. Mengedepankan prinsip verifikasi non-absolut sesuai PRD 19.3.
+            Integrasi Google Places API (New) + SerpAPI untuk mendeteksi entitas bisnis dengan indikasi web presence rendah. Mengedepankan prinsip verifikasi non-absolut secara objektif.
           </p>
         </div>
 
@@ -296,7 +296,7 @@ export default function BusinessDiscoveryPage() {
         </div>
       </div>
 
-      {/* PRD 19.4: Search Criteria Panel (Alur Penemuan Pipeline) */}
+      {/* Search Criteria Panel (Alur Penemuan Pipeline) */}
       <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2">
@@ -306,7 +306,7 @@ export default function BusinessDiscoveryPage() {
             </h2>
           </div>
           <span className="text-[11px] text-slate-400 font-medium hidden sm:inline">
-            PRD Seksi 19.2 & 19.4
+            Discovery Pipeline
           </span>
         </div>
 
@@ -339,7 +339,7 @@ export default function BusinessDiscoveryPage() {
 
           <div className="space-y-1">
             <label className="block text-[11px] font-bold text-slate-600 uppercase tracking-wider">
-              Kategori PRD 19.1
+              Kategori Bisnis
             </label>
             <select
               value={criteriaCategory}
@@ -412,7 +412,7 @@ export default function BusinessDiscoveryPage() {
             <span className="text-xs text-slate-400 font-medium">peluang utama</span>
           </div>
           <div className="mt-3 text-[11px] text-slate-500 pt-3 border-t border-slate-100 font-mono text-[10px]">
-            PRD 19.3: Indikasi kuat tanpa web
+            Indikasi kuat tanpa web
           </div>
         </div>
 
@@ -423,7 +423,7 @@ export default function BusinessDiscoveryPage() {
             <span className="text-xs text-slate-400 font-medium">perlu dicek</span>
           </div>
           <div className="mt-3 text-[11px] text-slate-500 pt-3 border-t border-slate-100 font-mono text-[10px]">
-            PRD 19.3: Hasil ambigu / web usang
+            Hasil ambigu / web usang
           </div>
         </div>
 
@@ -441,7 +441,7 @@ export default function BusinessDiscoveryPage() {
 
       {/* Filter Toolbar */}
       <div className="bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-xs space-y-3">
-        {/* Category Filter Pills (PRD 19.1) */}
+        {/* Category Filter Pills */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-2 sm:pb-0">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider mr-2 shrink-0">
             Kategori:
@@ -483,7 +483,7 @@ export default function BusinessDiscoveryPage() {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* PRD 19.3 Status Filter */}
+            {/* Status Filter */}
             <div className="flex items-center gap-1.5 text-xs">
               <Filter className="w-3.5 h-3.5 text-slate-400" />
               <select
@@ -524,7 +524,7 @@ export default function BusinessDiscoveryPage() {
         </div>
       </div>
 
-      {/* 11 Fields Search Result Table (PRD 19.5 & Gambar 3) */}
+      {/* 11 Fields Search Result Table */}
       {viewMode === 'table' ? (
         <div className="bg-white border border-slate-200/80 rounded-2xl shadow-xs overflow-x-auto">
           <table className="w-full text-left text-xs">
@@ -590,7 +590,7 @@ export default function BusinessDiscoveryPage() {
                       </a>
                     </td>
 
-                    {/* 8. Website Status (PRD 19.3) */}
+                    {/* 8. Website Status */}
                     <td className="py-4 px-5">{getWebsiteStatusBadge(cand.websiteStatus)}</td>
 
                     {/* 9 & 10. Source & Last Checked */}
@@ -688,7 +688,7 @@ export default function BusinessDiscoveryPage() {
         </div>
       )}
 
-      {/* Manual Verification Modal / Drawer (PRD 19.4: Candidate Lead -> Manual Verification) */}
+      {/* Manual Verification Modal / Drawer (Candidate Lead -> Manual Verification) */}
       {activeCandidate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-xs">
           <div className="bg-white rounded-3xl border border-slate-200 max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
@@ -725,7 +725,7 @@ export default function BusinessDiscoveryPage() {
               </div>
             )}
 
-            {/* 11 Atribut PRD 19.5 Review */}
+            {/* 11 Atribut Review */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
                 <span className="text-[10px] font-bold uppercase text-slate-400 block">
@@ -788,7 +788,7 @@ export default function BusinessDiscoveryPage() {
 
               <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200/80 space-y-1">
                 <span className="text-[10px] font-bold uppercase text-slate-400 block">
-                  8. Website Status (PRD 19.3)
+                  8. Website Status
                 </span>
                 <div>{getWebsiteStatusBadge(activeCandidate.websiteStatus)}</div>
               </div>
@@ -816,10 +816,10 @@ export default function BusinessDiscoveryPage() {
               </div>
             </div>
 
-            {/* PRD 19.4: Manual Verification Actions */}
+            {/* Manual Verification Actions */}
             <div className="pt-4 border-t border-slate-100 space-y-3">
               <span className="text-xs font-bold text-slate-800 block">
-                Tindakan Verifikasi Manual Administrator (PRD 19.4)
+                Tindakan Verifikasi Manual Administrator
               </span>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">

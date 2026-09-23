@@ -10,6 +10,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-slate-950 border-t border-slate-800 text-xs text-slate-400">
+
       {/* ── MAIN FOOTER CONTENT ──────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-14 sm:pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 mb-12">

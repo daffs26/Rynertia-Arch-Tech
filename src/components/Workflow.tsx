@@ -34,7 +34,7 @@ export const Workflow: React.FC = () => {
   return (
     <section
       id="solutions"
-      className="py-16 sm:py-28 bg-gradient-to-b from-white via-slate-50/60 to-white relative border-t border-b border-slate-200/80 overflow-hidden"
+      className="py-16 sm:py-28 bg-gradient-to-b from-white via-slate-50/60 to-white dark:from-slate-950 dark:via-slate-900/60 dark:to-slate-950 relative border-t border-b border-slate-200/80 dark:border-slate-800 overflow-hidden transition-colors duration-200"
     >
       {/* Anchor alias for backwards compatibility with any existing #workflow links */}
       <div id="workflow" className="sr-only" />
@@ -42,7 +42,7 @@ export const Workflow: React.FC = () => {
         {/* Section Header */}
         <FadeIn direction="up">
           <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20 space-y-3">
-            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               {language === 'id' ? (
                 <>
                   Solusi: <span className="text-gradient-blue">Sinergi Menyeluruh</span>
@@ -53,7 +53,7 @@ export const Workflow: React.FC = () => {
                 </>
               )}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
               {t('flow-subtitle')}
             </p>
           </div>
@@ -84,6 +84,7 @@ export const Workflow: React.FC = () => {
                 strokeWidth="10"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                className="stroke-slate-200 dark:stroke-slate-800"
               />
               {/* Vibrant Colored Pipeline Center Trace */}
               <path
@@ -111,7 +112,7 @@ export const Workflow: React.FC = () => {
                     isOdd ? 'lg:translate-y-14' : 'lg:translate-y-0'
                   }`}
                 >
-                  <div className="bg-white/90 backdrop-blur-sm border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between h-full hover:border-slate-300 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative">
+                  <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 flex flex-col justify-between h-full hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative">
                     {/* Top Section: Step Number & 3D Isometric Platform */}
                     <div>
                       {/* Step Number floating header */}
@@ -172,10 +173,9 @@ export const Workflow: React.FC = () => {
                               width="84"
                               height="84"
                               rx="20"
-                              fill="#FFFFFF"
                               stroke={step.borderColor}
                               strokeWidth="3"
-                              className="transition-all duration-300"
+                              className="fill-white dark:fill-slate-800 transition-all duration-300"
                             />
                           </g>
                         </svg>
@@ -198,13 +198,13 @@ export const Workflow: React.FC = () => {
                         </div>
 
                         {/* Step Title */}
-                        <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                           {t(step.titleKey)}
                         </h3>
                       </div>
 
                       {/* Step Description */}
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
                         {t(step.descKey)}
                       </p>
                     </div>
@@ -221,7 +221,7 @@ export const Workflow: React.FC = () => {
             <div className="mt-14 sm:mt-18 text-center">
               <Link
                 href={`/${language}/${language === 'en' ? 'solutions' : 'solusi'}`}
-                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 hover:text-blue-700 bg-white hover:bg-blue-50/60 border border-slate-200/90 hover:border-blue-300 px-6 py-3 rounded-xl shadow-xs transition-all group"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 bg-white dark:bg-slate-900 hover:bg-blue-50/60 dark:hover:bg-slate-800 border border-slate-200/90 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500 px-6 py-3 rounded-xl shadow-xs transition-all group"
               >
                 <span>{language === 'id' ? 'Buka Katalog Solusi Arsitektur Enterprise Lengkap' : 'Explore Full Enterprise Architecture Solutions Catalog'}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

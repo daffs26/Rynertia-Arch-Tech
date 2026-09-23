@@ -13,7 +13,7 @@ import { ScrollProgressBar, BackToTopButton } from '@/components/MotionWrapper';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
       {/* 1. Beranda */}

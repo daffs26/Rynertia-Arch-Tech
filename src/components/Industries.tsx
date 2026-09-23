@@ -72,16 +72,16 @@ export const Industries: React.FC = () => {
   return (
     <section
       id="industries"
-      className="py-14 sm:py-24 bg-white relative border-b border-slate-200/80"
+      className="py-14 sm:py-24 bg-white dark:bg-slate-950 relative border-b border-slate-200/80 dark:border-slate-800 transition-colors duration-200"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Header - No badge pill (Gambar 1 removed) */}
         <FadeIn direction="up">
           <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               {t('ind-title')}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
               {t('ind-subtitle')}
             </p>
           </div>
@@ -97,7 +97,7 @@ export const Industries: React.FC = () => {
 
             return (
               <StaggerItem key={ind.id}>
-                <div className="bg-slate-50/70 border border-slate-200/90 hover:border-blue-300 hover:bg-white rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between h-full group">
+                <div className="bg-slate-50/70 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-white dark:hover:bg-slate-900 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between h-full group">
                   <div className="space-y-4">
                     <div
                       className={`w-11 h-11 rounded-xl border flex items-center justify-center shadow-xs ${ind.bg}`}
@@ -106,21 +106,21 @@ export const Industries: React.FC = () => {
                     </div>
 
                     <div>
-                      <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors mb-2">
                         {t(ind.titleKey)}
                       </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                         {t(ind.descKey)}
                       </p>
                     </div>
                   </div>
 
-                  <div className="pt-5 mt-5 border-t border-slate-200/60 space-y-3">
+                  <div className="pt-5 mt-5 border-t border-slate-200/60 dark:border-slate-800 space-y-3">
                     <div className="flex flex-wrap gap-1.5">
                       {tags.map((tag, idx) => (
                         <span
                           key={idx}
-                          className="inline-flex items-center gap-1 text-[11px] text-slate-600 bg-white border border-slate-200/80 px-2 py-0.5 rounded-md font-medium"
+                          className="inline-flex items-center gap-1 text-[11px] text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 px-2 py-0.5 rounded-md font-medium"
                         >
                           <CheckCircle2 className="w-2.5 h-2.5 text-blue-500" />
                           {tag}
@@ -139,7 +139,7 @@ export const Industries: React.FC = () => {
           <div className="mt-8 text-center">
             <Link
               href={`/${language}/${language === 'en' ? 'industries' : 'industri'}`}
-              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 hover:text-blue-700 bg-blue-50/80 hover:bg-blue-100/80 border border-blue-200/60 px-5 py-2.5 rounded-xl transition-all group"
+              className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 bg-blue-50/80 dark:bg-blue-950/60 hover:bg-blue-100/80 dark:hover:bg-blue-900/60 border border-blue-200/60 dark:border-blue-900/50 px-5 py-2.5 rounded-xl transition-all group"
             >
               <span>
                 {language === 'id'
@@ -167,13 +167,13 @@ export const Industries: React.FC = () => {
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                   Konsultan spesialis kami siap menyusun blueprint arsitektur dan pemetaan proses bisnis BPMN yang sesuai dengan regulasi dan tantangan sektor Anda.
                 </p>
-                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs text-slate-400">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-1 text-xs text-white-400">
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-400" />
                     <span>Konsultasi Awal Bebas Biaya</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
+                    <CheckCircle2 className="w-4 h-4 text-blue-400" />
                     <span>Tanggapan Tim Ahli dalam 24 Jam</span>
                   </div>
                 </div>

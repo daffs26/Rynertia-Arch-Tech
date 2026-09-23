@@ -95,13 +95,13 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-24 bg-white relative overflow-hidden border-t border-slate-200/80">
+    <section id="contact" className="py-14 sm:py-24 bg-white dark:bg-slate-950 relative overflow-hidden border-t border-slate-200/80 dark:border-slate-800/80 transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
           {/* Left Column: Direct Inquiries */}
           <div className="lg:col-span-5 space-y-6">
             <FadeIn direction="right" delay={0.1}>
-              <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 leading-tight tracking-tight">
+              <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white leading-tight tracking-tight">
                 {language === 'id' ? (
                   <>
                     Mulai <span className="text-gradient-blue">Transformasi Digital</span> Anda
@@ -112,39 +112,39 @@ export const Contact: React.FC = () => {
                   </>
                 )}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mt-3">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mt-3">
                 {t('contact-subtitle')}
               </p>
             </FadeIn>
 
             <FadeIn direction="right" delay={0.25}>
               <div className="space-y-4 pt-4">
-                <div className="bg-slate-50 border border-slate-200/90 p-4 sm:p-5 rounded-2xl flex items-center gap-4 hover:border-blue-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-200/80 flex items-center justify-center shrink-0">
+                <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 rounded-2xl flex items-center gap-4 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 border border-blue-200/80 dark:border-blue-900/60 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-slate-400 uppercase font-bold font-mono">
+                    <span className="block text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold font-mono">
                       Official Communication
                     </span>
                     <a
                       href="mailto:contact@rynertia.tech"
-                      className="text-xs font-semibold text-slate-800 hover:text-blue-600 transition"
+                      className="text-xs font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
                     >
                       contact@rynertia.tech
                     </a>
                   </div>
                 </div>
 
-                <div className="bg-slate-50 border border-slate-200/90 p-4 sm:p-5 rounded-2xl flex items-center gap-4 hover:border-blue-300 transition-colors">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 border border-sky-200/80 flex items-center justify-center shrink-0">
+                <div className="bg-slate-50 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 rounded-2xl flex items-center gap-4 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border border-sky-200/80 dark:border-sky-900/60 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="block text-[10px] text-slate-400 uppercase font-bold font-mono">
+                    <span className="block text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold font-mono">
                       Engineering Hub
                     </span>
-                    <span className="text-xs font-semibold text-slate-800">
+                    <span className="text-xs font-semibold text-slate-800 dark:text-slate-200">
                       Jakarta, Indonesia
                     </span>
                   </div>
@@ -156,39 +156,39 @@ export const Contact: React.FC = () => {
           {/* Right Column: Secure Form Handler */}
           <div className="lg:col-span-7">
             <FadeIn direction="left" delay={0.2}>
-              <div className="bg-slate-50 border border-slate-200/90 p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm">
-                <h3 className="text-lg font-bold text-slate-900 mb-1">
+              <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-5 sm:p-8 rounded-2xl sm:rounded-3xl shadow-sm">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                   {t('form-heading')}
                 </h3>
-                <p className="text-xs text-slate-500 mb-6">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">
                   {t('form-subheading')}
                 </p>
 
                 {/* Inline Accessible Feedback Alert Banner */}
                 {errorMessage && (
-                  <div className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3 text-rose-700 text-xs">
+                  <div className="mb-6 p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900/60 flex items-start gap-3 text-rose-700 dark:text-rose-300 text-xs">
                     <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
                     <p>{errorMessage}</p>
                   </div>
                 )}
 
                 {isSuccess ? (
-                  <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
-                    <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-700 mx-auto flex items-center justify-center">
+                  <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/60 text-center space-y-4">
+                    <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/50 border border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300 mx-auto flex items-center justify-center">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-slate-900">
+                      <h4 className="text-base font-bold text-slate-900 dark:text-white">
                         {language === 'id' ? 'Permintaan Konsultasi Diterima' : 'Consultation Request Sent'}
                       </h4>
-                      <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto leading-relaxed">
+                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 max-w-sm mx-auto leading-relaxed">
                         {t('form-success')}
                       </p>
                     </div>
                     <button
                       type="button"
                       onClick={() => setIsSuccess(false)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-xs font-semibold shadow-sm transition-all cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold shadow-sm transition-all cursor-pointer"
                     >
                       <RefreshCw className="w-3.5 h-3.5" />
                       <span>{language === 'id' ? 'Kirim Pesan Lainnya' : 'Send Another Inquiry'}</span>
@@ -198,7 +198,7 @@ export const Contact: React.FC = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
                           {t('form-name')}
                         </label>
                         <input
@@ -210,11 +210,11 @@ export const Contact: React.FC = () => {
                           onChange={e =>
                             setFormData({ ...formData, name: e.target.value })
                           }
-                          className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
+                          className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/40 transition-all"
                         />
                       </div>
                       <div>
-                        <label className="block text-xs font-medium text-slate-700 mb-1">
+                        <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
                           {t('form-email')}
                         </label>
                         <input
@@ -226,13 +226,13 @@ export const Contact: React.FC = () => {
                           onChange={e =>
                             setFormData({ ...formData, email: e.target.value })
                           }
-                          className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
+                          className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/40 transition-all"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
                         {t('form-service')}
                       </label>
                       <CustomDropdown
@@ -271,7 +271,7 @@ export const Contact: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-slate-700 mb-1">
+                      <label className="block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1">
                         {t('form-msg')}
                       </label>
                       <textarea
@@ -287,7 +287,7 @@ export const Contact: React.FC = () => {
                         onChange={e =>
                           setFormData({ ...formData, message: e.target.value })
                         }
-                        className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 transition-all"
+                        className="w-full px-4 py-3 sm:py-2.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-base sm:text-xs focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 dark:focus:ring-blue-900/40 transition-all"
                       />
                     </div>
 

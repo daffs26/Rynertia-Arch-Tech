@@ -15,15 +15,15 @@ export const NewsSneakPeek: React.FC = () => {
   const spotlightArticles = newsArticles.slice(0, 3);
 
   return (
-    <section id="news" className="py-20 sm:py-28 bg-white border-t border-slate-200/80 relative">
+    <section id="news" className="py-20 sm:py-28 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 relative transition-colors duration-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <FadeIn direction="up">
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-4">
               {t('news-sneak-title')}
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
               {t('news-sneak-subtitle')}
             </p>
           </FadeIn>
@@ -44,10 +44,10 @@ export const NewsSneakPeek: React.FC = () => {
                 <StaggerItem key={article.slug}>
                   <Link
                     href={`/${language}/${language === 'en' ? 'news' : 'berita'}/${article.slug}`}
-                    className="group bg-slate-50/70 hover:bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/80 hover:border-blue-300 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full cursor-pointer"
+                    className="group bg-slate-50/70 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 p-5 sm:p-6 rounded-3xl border border-slate-200/80 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500 shadow-xs hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full cursor-pointer"
                   >
                     {/* Rounded Cover Thumbnail */}
-                    <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 bg-slate-200 shrink-0">
+                    <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 bg-slate-200 dark:bg-slate-800 shrink-0">
                       <img
                         src={article.coverImage}
                         alt={title}
@@ -56,45 +56,45 @@ export const NewsSneakPeek: React.FC = () => {
                     </div>
 
                     {/* Metadata: Date and Read Time (No category badge) */}
-                    <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium mb-2.5">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium mb-2.5">
                       <span>{date}</span>
                       <span>&bull;</span>
                       <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-slate-400" />
+                        <Clock className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                         {article.readTimeMinutes} {t('news-min-read')}
                       </span>
                     </div>
 
                     {/* Article Headline */}
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mb-2.5">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug mb-2.5">
                       {title}
                     </h3>
 
                     {/* Short Summary Excerpt */}
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2 mb-5">
+                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-2 mb-5">
                       {summary}
                     </p>
 
                     {/* Card Footer: Author Info & Direct CTA */}
-                    <div className="mt-auto pt-4 border-t border-slate-200/60 flex items-center justify-between gap-3">
+                    <div className="mt-auto pt-4 border-t border-slate-200/60 dark:border-slate-800 flex items-center justify-between gap-3">
                       {/* Author */}
                       {author && (
                         <div className="flex items-center gap-2 min-w-0">
-                          <div className="w-6 h-6 rounded-full overflow-hidden bg-slate-200 shrink-0 ring-1 ring-slate-300">
+                          <div className="w-6 h-6 rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 shrink-0 ring-1 ring-slate-300 dark:ring-slate-700">
                             <img
                               src={author.image}
                               alt={author.name}
                               className="w-full h-full object-cover"
                             />
                           </div>
-                          <span className="text-xs font-semibold text-slate-700 truncate">
+                          <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 truncate">
                             {author.name.split(' ')[0]}
                           </span>
                         </div>
                       )}
 
                       {/* Card Action Link */}
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 group-hover:text-blue-700 transition-colors shrink-0 ml-auto">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors shrink-0 ml-auto">
                         <span>{t('news-sneak-read-more')}</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </span>

@@ -63,7 +63,7 @@ export default function NewContentPage() {
               Tambah Konten Digital Baru
             </h1>
             <p className="text-xs text-slate-500 font-normal">
-              PRD 16.1.2: Buat konten dan tentukan siklus hidup publikasinya
+              Buat konten dan tentukan siklus hidup publikasinya
             </p>
           </div>
         </div>
@@ -181,11 +181,11 @@ export default function NewContentPage() {
           />
         </div>
 
-        {/* PRD 17: Content Lifecycle Selector */}
+        {/* Content Lifecycle Selector */}
         <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-3">
           <div className="flex items-center gap-2 text-xs font-bold text-slate-800">
             <Info className="w-4 h-4 text-blue-600" />
-            <span>Pilih Status Lifecycle (PRD Seksi 17)</span>
+            <span>Pilih Status Lifecycle</span>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
