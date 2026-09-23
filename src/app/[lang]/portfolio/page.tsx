@@ -13,6 +13,7 @@ import { portfolioItems } from '@/data/portfolioData';
 import { ProjectCard } from '@/components/ProjectCard';
 import { Footer } from '@/components/Footer';
 import { ClientMarquee } from '@/components/ClientMarquee';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import {
   FadeIn,
   ScrollProgressBar,
@@ -20,7 +21,7 @@ import {
 } from '@/components/MotionWrapper';
 
 export default function PortfolioGalleryPage() {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   const categories = [
@@ -64,31 +65,7 @@ export default function PortfolioGalleryPage() {
           </Link>
 
           {/* Language Switcher */}
-          <div className="relative flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200 text-xs font-semibold shadow-inner w-20 sm:w-24 shrink-0">
-            <div
-              className={`absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] rounded-full bg-blue-600 shadow-sm transition-transform duration-300 ease-out ${
-                language === 'id' ? 'translate-x-0' : 'translate-x-[calc(100%+2px)]'
-              }`}
-            />
-            <button
-              type="button"
-              onClick={() => setLanguage('id')}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-200 cursor-pointer ${
-                language === 'id' ? 'text-white font-bold' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              ID
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage('en')}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-200 cursor-pointer ${
-                language === 'en' ? 'text-white font-bold' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -103,19 +80,19 @@ export default function PortfolioGalleryPage() {
               <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 {language === 'id' ? (
                   <>
-                    Kemitraan Strategis &amp; <span className="text-gradient-blue">Hasil Nyata Klien Kami</span>
+                    Katalog Studi Kasus &amp; <span className="text-gradient-blue">Blueprint Rekayasa Sistem</span>
                   </>
                 ) : (
                   <>
-                    Strategic Partnerships &amp; <span className="text-gradient-blue">Tangible Results with Our Clients</span>
+                    Solution Case Studies &amp; <span className="text-gradient-blue">Engineering Blueprints</span>
                   </>
                 )}
               </h1>
 
               <p className="text-xs sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
                 {language === 'id'
-                  ? 'Sebuah kehormatan bagi kami dipercaya merancang masa depan digital bersama para mitra. Melalui kerja sama erat dan riset proses bisnis yang mendalam, inilah bukti hasil nyata yang berhasil kita raih bersama.'
-                  : 'We are honored to engineer the digital future alongside our partners. Through close collaboration and deep business process analysis, here is the tangible impact we have achieved together.'}
+                  ? 'Kompilasi pemodelan proses bisnis BPMN, rancang bangun arsitektur software, dan bukti konsep (POC) yang dirancang secara terstandarisasi untuk memecahkan hambatan operasional bisnis modern.'
+                  : 'A comprehensive library of BPMN process models, modular software architectures, and standardized proofs of concept engineered to solve operational bottlenecks.'}
               </p>
             </div>
           </FadeIn>

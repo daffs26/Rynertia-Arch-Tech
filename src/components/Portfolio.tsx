@@ -30,18 +30,18 @@ export const Portfolio: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
               {language === 'id' ? (
                 <>
-                  Kemitraan Strategis &amp; <span className="text-gradient-blue">Hasil Nyata Klien Kami</span>
+                  Studi Kasus Solusi &amp; <span className="text-gradient-blue">Rancang Bangun Sistem</span>
                 </>
               ) : (
                 <>
-                  Strategic Partnerships &amp; <span className="text-gradient-blue">Client Outcomes</span>
+                  Solution Case Studies &amp; <span className="text-gradient-blue">System Blueprints</span>
                 </>
               )}
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto">
               {language === 'id'
-                ? 'Bukti nyata bagaimana kolaborasi erat dan riset proses bisnis mendalam melahirkan dampak digital bagi para mitra.'
-                : t('port-subtitle')}
+                ? 'Eksplorasi arsitektur sistem, pemodelan proses bisnis BPMN, dan bukti konsep (POC) yang dirancang untuk menjawab tantangan operasional industri modern.'
+                : 'Architectural explorations, BPMN process modeling, and proof-of-concept solutions engineered to eliminate operational bottlenecks.'}
             </p>
           </div>
         </FadeIn>
@@ -66,8 +66,8 @@ export const Portfolio: React.FC = () => {
           >
             <span>
               {language === 'id'
-                ? 'Lihat Hasil Kerja Sama Klien Kami Lainnya'
-                : 'Explore More Client Success & Collaborations'}
+                ? 'Jelajahi Seluruh Studi Kasus & Blueprint'
+                : 'Explore All Case Studies & Blueprints'}
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>

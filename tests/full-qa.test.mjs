@@ -45,7 +45,7 @@ test('Full QA: Core Routes Return 200 OK with Proper Content', async () => {
     { path: '/id/industri', match: 'RYNERTIA' },
     { path: '/en/industries', match: 'RYNERTIA' },
     { path: '/id/portfolio', match: 'RYNERTIA' },
-    { path: '/en/portfolio', match: 'Strategic Partnerships' },
+    { path: '/en/portfolio', match: 'RYNERTIA' },
     { path: '/id/berita', match: 'RYNERTIA' },
     { path: '/en/news', match: 'RYNERTIA' },
     { path: '/id/organisasi', match: 'RYNERTIA' },

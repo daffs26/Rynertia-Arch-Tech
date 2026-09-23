@@ -46,12 +46,12 @@ export const enterpriseSolutions: SolutionItem[] = [
     solutionEn:
       'An automated digital credit orchestration engine integrating e-KYC, analytical scoring, and core banking gateways with automated zero-downtime failover.',
     expectedBusinessValueId:
-      'Waktu persetujuan kredit dipangkas dari 5 hari kerja menjadi 15 menit, ketersediaan transaksi 99.99%, dan kepatuhan penuh terhadap regulasi audit perbankan.',
+      'Waktu persetujuan kredit dipangkas dari 5 hari kerja menjadi 15 menit, target ketersediaan transaksi 99.99%, dan kepatuhan penuh terhadap regulasi audit perbankan.',
     expectedBusinessValueEn:
-      'Credit turnaround slashed from 5 days to 15 minutes, 99.99% transaction availability, and full compliance with financial audit regulations.',
+      'Credit turnaround reduced from 5 business days to 15 minutes, 99.99% target transaction availability, and full compliance with financial audit regulations.',
     metrics: [
       { labelId: 'Waktu Persetujuan', labelEn: 'Approval Turnaround', value: '15 Menit' },
-      { labelId: 'Ketersediaan Sistem', labelEn: 'System Availability', value: '99.99%' },
+      { labelId: 'Target Ketersediaan', labelEn: 'Target Availability', value: '99.99%' },
       { labelId: 'Penurunan Risiko Fraud', labelEn: 'Fraud Risk Reduction', value: '74%' },
     ],
     standards: ['ISO 20022', 'BPMN 2.0', 'PCI-DSS', 'Core Banking API'],
@@ -142,11 +142,11 @@ export const enterpriseSolutions: SolutionItem[] = [
     solutionEn:
       'A centralized logistics command center integrating warehouse rack management, automated picking, and multimodal fleet geofencing.',
     expectedBusinessValueId:
-      'Akurasi stok pergudangan meningkat hingga 99.8%, penghematan konsumsi bahan bakar armada 28%, dan kepastian estimasi waktu tiba (ETA) bagi pelanggan.',
+      'Target akurasi stok pergudangan hingga 99.8%, efisiensi konsumsi bahan bakar armada 28%, dan kepastian estimasi waktu tiba (ETA) bagi pelanggan.',
     expectedBusinessValueEn:
-      'Warehouse stock accuracy elevated to 99.8%, 28% fleet fuel cost reduction, and transparent ETA assurance for enterprise clients.',
+      'Target warehouse stock accuracy up to 99.8%, 28% fleet fuel cost reduction, and transparent ETA assurance for enterprise clients.',
     metrics: [
-      { labelId: 'Akurasi Stok Gudang', labelEn: 'Inventory Accuracy', value: '99.8%' },
+      { labelId: 'Target Akurasi Gudang', labelEn: 'Target Inventory Accuracy', value: '99.8%' },
       { labelId: 'Efisiensi Bahan Bakar', labelEn: 'Fuel Efficiency', value: '28%' },
       { labelId: 'Akurasi Jadwal ETA', labelEn: 'ETA Reliability', value: '96.5%' },
     ],

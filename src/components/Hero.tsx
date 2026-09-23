@@ -1,15 +1,16 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import {
   Compass,
-  MessageSquare,
   Search,
   Cpu,
   TrendingUp,
   Layers,
   Users,
   ArrowRight,
+  ArrowUpRight,
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import {
@@ -75,13 +76,13 @@ export const Hero: React.FC = () => {
                   <span>{t('hero-btn-explore')}</span>
                   <Compass className="w-4.5 h-4.5 sm:w-5 sm:h-5 group-hover:rotate-45 transition-transform duration-300" />
                 </a>
-                <a
-                  href="#contact"
+                <Link
+                  href={`/${language}/portfolio`}
                   className="w-full sm:w-auto px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl border-2 border-slate-300/90 dark:border-slate-700 bg-white/90 dark:bg-slate-900/90 hover:bg-white dark:hover:bg-slate-800 hover:border-blue-600 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 text-slate-800 dark:text-slate-100 font-semibold sm:font-bold text-sm sm:text-[15px] shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2.5 hover:-translate-y-0.5 cursor-pointer min-h-[48px] sm:min-h-[50px] backdrop-blur-md group"
                 >
-                  <span>{t('hero-btn-consult')}</span>
-                  <MessageSquare className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
-                </a>
+                  <span>{t('hero-btn-portfolio')}</span>
+                  <ArrowUpRight className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-slate-600 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
+                </Link>
               </div>
             </FadeIn>
           </div>

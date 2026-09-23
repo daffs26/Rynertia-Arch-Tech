@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
   const { language, t } = useLanguage();
 
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 text-xs text-slate-400">
+    <footer className="bg-[#071330] border-t border-[#122852] text-xs text-slate-300">
 
       {/* ── MAIN FOOTER CONTENT ──────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 pt-14 sm:pt-16 pb-12">
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
+            <p className="text-xs text-slate-300 max-w-sm leading-relaxed">
               {t('footer-desc')}
             </p>
 
@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-blue-600 hover:text-white text-slate-300 flex items-center justify-center border border-slate-800 transition-all duration-200"
+                  className="w-9 h-9 rounded-xl bg-[#0d1d3d] hover:bg-blue-600 hover:text-white text-blue-200 flex items-center justify-center border border-[#1b3260] transition-all duration-200"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-4 h-4" />
@@ -55,7 +55,7 @@ export const Footer: React.FC = () => {
                   href="https://github.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-slate-800 hover:text-white text-slate-300 flex items-center justify-center border border-slate-800 transition-all duration-200"
+                  className="w-9 h-9 rounded-xl bg-[#0d1d3d] hover:bg-slate-800 hover:text-white text-blue-200 flex items-center justify-center border border-[#1b3260] transition-all duration-200"
                   aria-label="GitHub"
                 >
                   <Github className="w-4 h-4" />
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-pink-600 hover:text-white text-slate-300 flex items-center justify-center border border-slate-800 transition-all duration-200"
+                  className="w-9 h-9 rounded-xl bg-[#0d1d3d] hover:bg-pink-600 hover:text-white text-blue-200 flex items-center justify-center border border-[#1b3260] transition-all duration-200"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-4 h-4" />
@@ -167,24 +167,24 @@ export const Footer: React.FC = () => {
                 href="mailto:contact@rynertia.tech"
                 className="flex items-center gap-2.5 hover:text-white transition group py-0.5"
               >
-                <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0 group-hover:border-blue-500 transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-sky-400" />
+                <div className="w-7 h-7 rounded-lg bg-[#0d1d3d] border border-[#1b3260] flex items-center justify-center shrink-0 group-hover:border-blue-500 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span className="truncate">contact@rynertia.tech</span>
               </a>
 
               {/* Operating Business Hours */}
               <div className="flex items-center gap-2.5 py-0.5">
-                <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0">
-                  <Clock className="w-3.5 h-3.5 text-blue-400" />
+                <div className="w-7 h-7 rounded-lg bg-[#0d1d3d] border border-[#1b3260] flex items-center justify-center shrink-0">
+                  <Clock className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span>{t('topbar-hours')}</span>
               </div>
 
               {/* Engineering Hub Location */}
               <div className="flex items-center gap-2.5 py-0.5">
-                <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center shrink-0">
-                  <MapPin className="w-3.5 h-3.5 text-rose-400" />
+                <div className="w-7 h-7 rounded-lg bg-[#0d1d3d] border border-[#1b3260] flex items-center justify-center shrink-0">
+                  <MapPin className="w-3.5 h-3.5 text-white" />
                 </div>
                 <span>Jakarta, Indonesia</span>
               </div>
@@ -193,11 +193,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* ── BOTTOM COPYRIGHT ──────────────── */}
-        <div className="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-500">
+        <div className="pt-8 border-t border-[#122852] flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-400">
           <p>© {new Date().getFullYear()} RYNERTIA ARC TECH. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6">
             {/* Enterprise Verification Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-slate-300 text-[11px] shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0d1d3d] border border-[#1b3260] text-blue-100 text-[11px] shadow-xs">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span className="font-medium text-slate-200">{t('topbar-status')}</span>
             </div>

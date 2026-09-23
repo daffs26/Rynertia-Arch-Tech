@@ -9,6 +9,7 @@ import { NewsFeaturedCard } from '@/components/NewsFeaturedCard';
 import { NewsCompactRow } from '@/components/NewsCompactRow';
 import { NewsFounderCard } from '@/components/NewsFounderCard';
 import { Footer } from '@/components/Footer';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import {
   FadeIn,
   StaggerContainer,
@@ -18,7 +19,7 @@ import {
 } from '@/components/MotionWrapper';
 
 export default function NewsCatalogPage() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t } = useLanguage();
 
   // Find the featured article (top left)
   const featuredArticle = newsArticles.find(a => a.isFeatured) || newsArticles[0];
@@ -69,30 +70,7 @@ export default function NewsCatalogPage() {
           </Link>
 
           {/* Language Switcher */}
-          <div className="flex items-center gap-1.5 shrink-0">
-            <div className="flex items-center bg-slate-100/90 rounded-lg p-1 border border-slate-200/80">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-2.5 py-1 text-xs font-bold rounded-md transition-all ${
-                  language === 'en'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage('id')}
-                className={`px-2.5 py-1 text-xs font-bold rounded-md transition-all ${
-                  language === 'id'
-                    ? 'bg-blue-600 text-white shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                ID
-              </button>
-            </div>
-          </div>
+          <LanguageSwitcher />
         </div>
       </header>
 

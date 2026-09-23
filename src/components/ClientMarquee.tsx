@@ -236,24 +236,24 @@ export const ClientMarquee: React.FC = () => {
       {/* Header Label & Title */}
       <div className="text-center max-w-3xl mx-auto px-4 mb-10 space-y-2.5">
         <p className="text-xs sm:text-sm font-extrabold tracking-widest text-blue-600 dark:text-blue-400 uppercase font-mono">
-          {language === 'id' ? 'Kemitraan Kami' : 'Our Partners'}
+          {language === 'id' ? 'Fokus Ekosistem & Domain Industri' : 'Industry Ecosystems & Domains'}
         </p>
         <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
           {language === 'id' ? (
             <>
-              Tumbuh &amp; Berkolaborasi Bersama <span className="text-gradient-blue">Mitra Terbaik</span>
+              Rancang Bangun Solusi <span className="text-gradient-blue">Lintas Sektor Industri</span>
             </>
           ) : (
             <>
-              We Collaborate with the <span className="text-gradient-blue">Best Partners</span>
+              Architectural Solutions Across <span className="text-gradient-blue">Industry Verticals</span>
             </>
           )}
         </h2>
         {isSplit && (
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 font-medium max-w-xl mx-auto leading-relaxed">
             {language === 'id'
-              ? `${clients.length}+ perusahaan & inisiatif industri telah mempercayakan transformasi digital bersama kami`
-              : `${clients.length}+ industry enterprises trust our digital engineering`}
+              ? 'Rancangan arsitektur dan pemodelan proses yang disiapkan secara modular untuk menjawab tantangan operasional sektor finansial, manufaktur, hingga rantai pasok.'
+              : 'Modular architectures and process workflows engineered to address operational challenges across finance, manufacturing, and supply chain domains.'}
           </p>
         )}
       </div>

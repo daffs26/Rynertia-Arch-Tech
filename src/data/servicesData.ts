@@ -53,9 +53,9 @@ export const servicePillars: ServicePillar[] = [
     problemSolvedEn:
       'Sluggish legacy monolith systems, vulnerability to downtime during transaction spikes, and brittle API integrations across modern platforms.',
     valueDeliveredId:
-      'Platform modular cloud-native berkapasitas throughput tinggi, arsitektur microservices yang dapat diskalakan secara independen, dan jaminan uptime 99.9%.',
+      'Platform modular cloud-native berkapasitas throughput tinggi, arsitektur microservices yang dapat diskalakan secara independen, dan standar desain ketersediaan tinggi.',
     valueDeliveredEn:
-      'High-throughput cloud-native modular platforms, independently scalable microservices architecture, and 99.9% uptime SLA assurance.',
+      'High-throughput cloud-native modular platforms, independently scalable microservices architecture, and high-availability design standards.',
     colorScheme: {
       haloRing:
         'bg-blue-600/25 border-blue-400/50 shadow-[0_0_30px_rgba(37,99,235,0.45)] group-hover:shadow-[0_0_40px_rgba(37,99,235,0.65)] ring-2 ring-blue-400/30',

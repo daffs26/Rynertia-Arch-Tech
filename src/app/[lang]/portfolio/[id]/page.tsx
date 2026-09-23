@@ -25,6 +25,7 @@ import { portfolioItems, ProjectDocumentationItem } from '@/data/portfolioData';
 import { teamMembers } from '@/data/teamData';
 import { useLanguage } from '@/context/LanguageContext';
 import { Footer } from '@/components/Footer';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { getClientLogo } from '@/components/ClientMarquee';
 import {
   FadeIn,
@@ -34,7 +35,7 @@ import {
 
 export default function PortfolioDetailPage() {
   const routeParams = useParams();
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const [selectedPhoto, setSelectedPhoto] = useState<ProjectDocumentationItem | null>(null);
 
   const rawId =
@@ -136,31 +137,7 @@ export default function PortfolioDetailPage() {
           </nav>
 
           {/* Language Switcher */}
-          <div className="relative flex items-center bg-slate-100 p-0.5 rounded-full border border-slate-200 text-xs font-semibold shadow-inner w-24 shrink-0">
-            <div
-              className={`absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] rounded-full bg-blue-600 shadow-sm transition-transform duration-300 ease-out ${
-                language === 'id' ? 'translate-x-0' : 'translate-x-[calc(100%+2px)]'
-              }`}
-            />
-            <button
-              type="button"
-              onClick={() => setLanguage('id')}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-200 cursor-pointer ${
-                language === 'id' ? 'text-white font-bold' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              ID
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage('en')}
-              className={`relative z-10 flex-1 py-1 text-center transition-colors duration-200 cursor-pointer ${
-                language === 'en' ? 'text-white font-bold' : 'text-slate-600 hover:text-slate-900'
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          <LanguageSwitcher />
         </div>
       </header>
 

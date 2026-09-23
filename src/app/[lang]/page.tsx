@@ -18,8 +18,8 @@ export default function HomePage() {
       <Navbar />
       {/* 1. Beranda */}
       <Hero />
-      {/* 2. Tentang Kami */}
-      <About />
+      {/* 2. Tentang Kami (Teaser Ringkas) */}
+      <About isPreview={true} />
       {/* 3. Layanan */}
       <Services />
       {/* 4. Industri yang Dilayani */}

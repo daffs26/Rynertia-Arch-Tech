@@ -15,6 +15,30 @@ export interface TranslationDictionary {
   'nav-team': string;
   'nav-portfolio': string;
   'nav-cta': string;
+  'nav-sub-home': string;
+  'nav-sub-about': string;
+  'nav-sub-services': string;
+  'nav-sub-industries': string;
+  'nav-sub-solutions': string;
+  'nav-sub-portfolio': string;
+  'nav-sub-news': string;
+  'nav-sub-contact': string;
+  'about-why-title': string;
+  'about-why-subtitle': string;
+  'about-pillar-1': string;
+  'about-pillar-2': string;
+  'about-pillar-3': string;
+  'vision-title': string;
+  'vision-tag': string;
+  'vision-desc': string;
+  'mission-title': string;
+  'mission-tag': string;
+  'mission-1': string;
+  'mission-2': string;
+  'mission-3': string;
+  'about-leader-heading': string;
+  'about-leader-sub': string;
+  'about-leader-role': string;
   'form-subject': string;
   'hero-badge': string;
   'hero-title-1': string;
@@ -22,6 +46,7 @@ export interface TranslationDictionary {
   'hero-desc': string;
   'hero-btn-explore': string;
   'hero-btn-consult': string;
+  'hero-btn-portfolio': string;
   'trust-1': string;
   'trust-2': string;
   'trust-3': string;
@@ -240,6 +265,30 @@ export const translations: Record<Language, TranslationDictionary> = {
     'nav-team': 'Team',
     'nav-portfolio': 'Portfolio',
     'nav-cta': 'Get in Touch',
+    'nav-sub-home': 'Home Base',
+    'nav-sub-about': 'About & Values',
+    'nav-sub-services': 'Core Services',
+    'nav-sub-industries': 'Industry Sectors',
+    'nav-sub-solutions': 'BPMN & IT Tech',
+    'nav-sub-portfolio': 'Case Studies & Blueprints',
+    'nav-sub-news': 'News & Insights',
+    'nav-sub-contact': 'Get in Touch',
+    'about-why-title': 'Why Choose Rynertia Arc Tech?',
+    'about-why-subtitle': 'Combining rigorous operational research with resilient cloud software engineering.',
+    'about-pillar-1': 'BPMN Research & Analysis',
+    'about-pillar-2': 'IT Engineering Architecture',
+    'about-pillar-3': 'Stability & Proven Scale',
+    'vision-title': 'Our Strategic Vision',
+    'vision-tag': 'CORPORATE VISION',
+    'vision-desc': 'To become a premier enterprise architecture firm that bridges business process clarity and high-concurrency software resilience across modern industries.',
+    'mission-title': 'Our Operating Mission',
+    'mission-tag': 'OPERATIONAL MISSION',
+    'mission-1': 'Eliminating operational bottlenecks through formal BPMN 2.0 orchestration before engineering.',
+    'mission-2': 'Architecting resilient, modular systems prioritizing high availability aligned with client operational requirements.',
+    'mission-3': 'Enabling continuous data governance and scalable technology roadmaps for client success.',
+    'about-leader-heading': 'Enterprise Consulting with Uncompromising Precision',
+    'about-leader-sub': 'Every system we architect is grounded in verified workflow analysis, rigorous data integrity, and human-centered technology standards.',
+    'about-leader-role': 'Rynertia Arc Tech Directorate',
     'form-subject': 'Subject',
     'hero-badge': 'Enterprise IT & Business Process Consulting',
     'hero-title-1': 'Empowering Business via',
@@ -247,6 +296,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'hero-desc': 'RYNERTIA ARC TECH integrates market research, business process modeling, and high-performance software engineering to deliver end-to-end digital transformation for modern enterprises.',
     'hero-btn-explore': 'Explore Our Services',
     'hero-btn-consult': 'Start Consultation',
+    'hero-btn-portfolio': 'View Portfolio',
     'trust-1': 'Research-Backed Strategy',
     'trust-2': 'End-to-End Execution',
     'trust-3': 'Multi-Disciplinary Team',
@@ -257,8 +307,8 @@ export const translations: Record<Language, TranslationDictionary> = {
     'feat-1-chip-2': 'Feasibility Analysis',
     'feat-2-title': 'High-Concurrency Engineering',
     'feat-2-desc': 'Building resilient web, mobile, and cloud platforms with microservices architecture designed to sustain transaction surges.',
-    'feat-2-cta': 'View 25 Case Studies',
-    'feat-2-chip-1': '25 Proven Case Studies',
+    'feat-2-cta': 'Explore 25 Case Studies & Blueprints',
+    'feat-2-chip-1': '25 Architecture Blueprints',
     'feat-2-chip-2': 'Cloud & Microservices',
     'feat-3-title': 'Conversion-Focused UI/UX',
     'feat-3-desc': 'WCAG AA compliant interfaces engineered to minimize user friction and multiply enterprise customer retention.',
@@ -414,20 +464,20 @@ export const translations: Record<Language, TranslationDictionary> = {
     'sol-3-title': 'Software Engineering & Distributed Integration',
     'sol-3-desc': 'Developing modular software solutions with clean architecture, automated testing, and secure API integrations built to enterprise specs.',
     'sol-4-num': '04',
-    'sol-4-title': 'SLA Assurance, Security Audits & Governance',
-    'sol-4-desc': 'Executing high-concurrency load tests, OWASP security audits, hands-on go-live governance, and long-term maintenance SOPs.',
+    'sol-4-title': 'SLA Readiness Standards, Audits & Governance',
+    'sol-4-desc': 'Executing load tests, OWASP security reviews, deployment onboarding, and standard operating procedures (SOPs) for technology governance.',
     // 14.3 Tentang Kami - Relevant Company Information & Credibility
     'about-facts-label': 'Company Facts & Credibility',
     'about-facts-title': 'Key Enterprise Facts About Rynertia Arc Tech',
     'fact-1-val': '16',
     'fact-1-title': 'Multidisciplinary Specialists',
     'fact-1-desc': 'Spanning BPMN Consultants, Solutions Architects, Software Engineers, QA Leads, and Market Analysts.',
-    'fact-2-val': '25+',
-    'fact-2-title': 'Proven Enterprise Case Studies',
-    'fact-2-desc': 'Implemented across banking, telecommunications, healthcare, logistics, and government institutions.',
-    'fact-3-val': '99.9%',
-    'fact-3-title': 'Architectural SLA Standard',
-    'fact-3-desc': 'Designed with fault-tolerant distributed architecture and automated failover for mission-critical operations.',
+    'fact-2-val': '25',
+    'fact-2-title': 'Solution Blueprints & Case Studies',
+    'fact-2-desc': 'Ready-to-adapt architecture designs, BPMN models, and proofs of concept engineered across key industry sectors.',
+    'fact-3-val': 'Target',
+    'fact-3-title': 'High-Availability Design Standard (SLA)',
+    'fact-3-desc': 'Every architecture is engineered around fault-tolerant principles and modular failover aiming for maximum operational uptime.',
     'fact-4-val': 'Jakarta',
     'fact-4-title': 'Headquarters & Engineering Lab',
     'fact-4-desc': 'Headquartered in South Jakarta, delivering consulting and engineering engagements nationwide and regionally.',
@@ -450,7 +500,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'page-org-matrix-title': 'Role Responsibility Matrix (PRD Section 3.2)',
     'page-org-matrix-desc': 'Operational accountability standards and cross-functional responsibilities for each team role.',
     'page-industries-heading': 'Industry Sector Exploration',
-    'page-industries-subheading': 'Regulatory-compliant consulting solutions and proven case studies for each enterprise sector.',
+    'page-industries-subheading': 'Regulatory-aligned consulting blueprints and tailored case studies for each enterprise sector.',
     'page-industries-related-portfolio': 'Related Portfolio Case Studies'
   },
   id: {
@@ -468,6 +518,30 @@ export const translations: Record<Language, TranslationDictionary> = {
     'nav-team': 'Tim',
     'nav-portfolio': 'Portofolio',
     'nav-cta': 'Hubungi Kami',
+    'nav-sub-home': 'Halaman Utama',
+    'nav-sub-about': 'Profil & Nilai',
+    'nav-sub-services': 'Layanan Inti',
+    'nav-sub-industries': 'Sektor Industri',
+    'nav-sub-solutions': 'BPMN & Rekayasa IT',
+    'nav-sub-portfolio': 'Studi Kasus & Blueprint',
+    'nav-sub-news': 'Wawasan & Riset',
+    'nav-sub-contact': 'Mulai Terhubung',
+    'about-why-title': 'Mengapa Memilih Rynertia Arc Tech?',
+    'about-why-subtitle': 'Memadukan riset operasional mendalam dengan rekayasa perangkat lunak awan yang tangguh.',
+    'about-pillar-1': 'Riset & Pemodelan BPMN',
+    'about-pillar-2': 'Arsitektur Rekayasa IT',
+    'about-pillar-3': 'Stabilitas & Skalabilitas',
+    'vision-title': 'Visi Strategis Kami',
+    'vision-tag': 'VISI PERUSAHAAN',
+    'vision-desc': 'Menjadi firma arsitektur enterprise terpercaya yang menjembatani kejelasan proses bisnis dan ketahanan perangkat lunak skala tinggi di berbagai industri modern.',
+    'mission-title': 'Misi Operasional Kami',
+    'mission-tag': 'MISI OPERASIONAL',
+    'mission-1': 'Mengeliminasi hambatan operasional melalui orkestrasi BPMN 2.0 formal sebelum fase penulisan kode.',
+    'mission-2': 'Merancang arsitektur sistem yang tangguh, modular, dan memprioritaskan ketersediaan tinggi sesuai kebutuhan operasional klien.',
+    'mission-3': 'Menghadirkan tata kelola data berkelanjutan dan peta jalan teknologi terukur bagi keberhasilan klien.',
+    'about-leader-heading': 'Konsultansi Enterprise dengan Standar Presisi Tinggi',
+    'about-leader-sub': 'Setiap sistem yang kami rancang didasarkan pada analisis alur kerja terverifikasi, integritas data ketat, dan standar teknologi yang berpusat pada manusia.',
+    'about-leader-role': 'Direktorat Rynertia Arc Tech',
     'form-subject': 'Subjek Pesan',
     'hero-badge': 'Konsultansi IT & Analisis Proses Bisnis Enterprise',
     'hero-title-1': 'Akselerasi Bisnis melalui',
@@ -475,6 +549,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'hero-desc': 'RYNERTIA ARC TECH mengintegrasikan riset pasar, pemodelan proses bisnis, dan rekayasa perangkat lunak berkinerja tinggi untuk menghadirkan transformasi digital menyeluruh bagi bisnis modern.',
     'hero-btn-explore': 'Jelajahi Layanan',
     'hero-btn-consult': 'Mulai Konsultasi',
+    'hero-btn-portfolio': 'Lihat Portofolio',
     'trust-1': 'Strategi Berbasis Riset',
     'trust-2': 'Eksekusi Menyeluruh',
     'trust-3': 'Tim Lintas Disiplin',
@@ -485,8 +560,8 @@ export const translations: Record<Language, TranslationDictionary> = {
     'feat-1-chip-2': 'Analisis Kelayakan',
     'feat-2-title': 'Rekayasa Sistem Skalabilitas Tinggi',
     'feat-2-desc': 'Pengembangan platform web, mobile, dan cloud dengan arsitektur tangguh yang siap menangani lonjakan transaksi.',
-    'feat-2-cta': 'Buka 25 Portofolio Proyek',
-    'feat-2-chip-1': '25 Studi Kasus Teruji',
+    'feat-2-cta': 'Lihat 25 Studi Kasus & Blueprint',
+    'feat-2-chip-1': '25 Blueprint Arsitektur',
     'feat-2-chip-2': 'Cloud & Microservices',
     'feat-3-title': 'UI/UX & Konversi Bisnis',
     'feat-3-desc': 'Antarmuka terukur berstandar WCAG AA yang dirancang untuk meminimalkan friksi pengguna dan meningkatkan retensi pelanggan.',
@@ -642,20 +717,20 @@ export const translations: Record<Language, TranslationDictionary> = {
     'sol-3-title': 'Rekayasa Software & Integrasi Terdistribusi',
     'sol-3-desc': 'Mengembangkan solusi software modular dengan clean architecture, automated testing, dan integrasi API yang aman sesuai standar enterprise.',
     'sol-4-num': '04',
-    'sol-4-title': 'Jaminan SLA, Audit Keamanan & Tata Kelola',
-    'sol-4-desc': 'Melakukan load testing berkapasitas tinggi, audit celah keamanan OWASP, pendampingan go-live, serta penyusunan SOP pemeliharaan jangka panjang.',
+    'sol-4-title': 'Standar Kesiapan SLA, Audit & Tata Kelola',
+    'sol-4-desc': 'Pengujian beban kerja, audit keamanan OWASP, pendampingan implementasi, serta perumusan standar operasional prosedur (SOP) tata kelola sistem.',
     // 14.3 Tentang Kami - Relevant Company Information & Credibility
     'about-facts-label': 'Fakta & Kredibilitas Perusahaan',
     'about-facts-title': 'Informasi Relevan Mengenai Rynertia Arc Tech',
     'fact-1-val': '16',
     'fact-1-title': 'Personil Spesialis Multidisiplin',
     'fact-1-desc': 'Mencakup Konsultan BPMN, Solutions Architect, Software Engineers, QA Leads, dan Analis Pasar.',
-    'fact-2-val': '25+',
-    'fact-2-title': 'Studi Kasus Enterprise Teruji',
-    'fact-2-desc': 'Telah diimplementasikan pada sektor perbankan, telekomunikasi, layanan kesehatan, hingga pemerintahan.',
-    'fact-3-val': '99.9%',
-    'fact-3-title': 'Standar Ketersediaan Arsitektur (SLA)',
-    'fact-3-desc': 'Dirancang dengan arsitektur toleran kesalahan (fault-tolerant) dan failover otomatis untuk sistem misi-kritis.',
+    'fact-2-val': '25',
+    'fact-2-title': 'Katalog Blueprint & Studi Kasus',
+    'fact-2-desc': 'Rancang bangun arsitektur sistem, pemodelan BPMN, dan bukti konsep (POC) siap kustomisasi lintas sektor industri.',
+    'fact-3-val': 'Target',
+    'fact-3-title': 'Standar Desain Ketersediaan (SLA)',
+    'fact-3-desc': 'Setiap arsitektur dirancang dengan prinsip toleransi kesalahan (fault-tolerant) dan failover modular untuk target ketersediaan tinggi.',
     'fact-4-val': 'Jakarta',
     'fact-4-title': 'Pusat Operasional & Rekayasa',
     'fact-4-desc': 'Berbasis operasional di Jakarta Selatan, siap melayani penugasan konsultansi di seluruh Indonesia dan regional.',
@@ -678,7 +753,7 @@ export const translations: Record<Language, TranslationDictionary> = {
     'page-org-matrix-title': 'Matriks Tanggung Jawab Peran (PRD Bab 3.2)',
     'page-org-matrix-desc': 'Alokasi tanggung jawab dan standar akuntabilitas operasional lintas peran tim proyek.',
     'page-industries-heading': 'Eksplorasi Sektor Industri',
-    'page-industries-subheading': 'Solusi konsultansi berbasis regulasi dan studi kasus portofolio nyata untuk setiap sektor.',
+    'page-industries-subheading': 'Solusi konsultansi selaras regulasi dan studi kasus rancang bangun untuk setiap sektor industri.',
     'page-industries-related-portfolio': 'Studi Kasus Portofolio Terkait'
   }
 };

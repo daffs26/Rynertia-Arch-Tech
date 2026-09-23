@@ -118,7 +118,7 @@ export const Workflow: React.FC = () => {
                       {/* Step Number floating header */}
                       <div className="mb-2">
                         <span
-                          className={`font-mono text-3xl sm:text-4xl font-extrabold italic tracking-tight ${step.numberColor}`}
+                          className="font-mono text-3xl sm:text-4xl font-extrabold italic tracking-tight text-slate-900 dark:text-white"
                         >
                           {step.step}
                         </span>
