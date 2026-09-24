@@ -18,7 +18,7 @@ export const NewsFeaturedCard: React.FC<NewsFeaturedCardProps> = ({ article }) =
   return (
     <Link
       href={`/${language}/${language === 'en' ? 'news' : 'berita'}/${article.slug}`}
-      className="group relative block w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200/80"
+      className="group relative block w-full h-[400px] sm:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-slate-200/80 dark:border-slate-800"
     >
       {/* Background Cover Image */}
       <img

@@ -67,7 +67,7 @@ export default function OrganizationPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
 
@@ -106,17 +106,17 @@ export default function OrganizationPage() {
       <Team />
 
       {/* Role Responsibility Matrix (PRD Bab 3.2) */}
-      <section className="py-14 sm:py-20 bg-white border-t border-slate-200/80">
+      <section className="py-14 sm:py-20 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-10">
           <FadeIn direction="up">
             <div className="text-center max-w-2xl mx-auto space-y-2">
-              <span className="text-xs font-bold font-mono tracking-wider uppercase text-blue-600 block">
+              <span className="text-xs font-bold font-mono tracking-wider uppercase text-blue-600 dark:text-blue-400 block">
                 PRD Bab 3.2 Standard
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
                 {t('page-org-matrix-title')}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {t('page-org-matrix-desc')}
               </p>
             </div>
@@ -128,19 +128,19 @@ export default function OrganizationPage() {
           >
             {roleMatrix.map((item, idx) => (
               <StaggerItem key={idx}>
-                <div className="bg-slate-50 border border-slate-200/90 hover:border-blue-300 hover:bg-white rounded-2xl p-6 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between h-full space-y-3">
+                <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500/50 hover:bg-white dark:hover:bg-slate-850 rounded-2xl p-6 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between h-full space-y-3">
                   <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center shadow-xs">
+                    <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 flex items-center justify-center shadow-xs">
                       {item.icon}
                     </div>
-                    <h3 className="text-base font-bold text-slate-900">
+                    <h3 className="text-base font-bold text-slate-900 dark:text-white">
                       {language === 'id' ? item.roleId : item.roleEn}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                       {language === 'id' ? item.respId : item.respEn}
                     </p>
                   </div>
-                  <div className="pt-3 border-t border-slate-200/60 flex items-center gap-1.5 text-[11px] font-medium text-blue-600">
+                  <div className="pt-3 border-t border-slate-200/60 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-medium text-blue-600 dark:text-blue-400">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     <span>Akuntabilitas Resmi PRD</span>
                   </div>

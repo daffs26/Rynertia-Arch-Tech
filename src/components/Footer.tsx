@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Clock, ShieldCheck, Linkedin, Github, Instagram, MapPin } from 'lucide-react';
+import { Mail, Clock, Linkedin, Github, Instagram, MapPin } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -196,12 +196,6 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-[#122852] flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-slate-400">
           <p>© {new Date().getFullYear()} RYNERTIA ARC TECH. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-4 sm:gap-6">
-            {/* Enterprise Verification Status Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0d1d3d] border border-[#1b3260] text-blue-100 text-[11px] shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span className="font-medium text-slate-200">{t('topbar-status')}</span>
-            </div>
-
             <a href="#privacy" className="hover:text-slate-400 transition">
               Privacy Policy
             </a>

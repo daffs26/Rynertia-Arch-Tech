@@ -42,7 +42,7 @@ export default async function ContactPage({
   const isEn = activeLang === 'en';
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
 

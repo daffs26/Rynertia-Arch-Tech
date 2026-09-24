@@ -21,6 +21,7 @@ import { teamMembers } from '@/data/teamData';
 import { useLanguage } from '@/context/LanguageContext';
 import { Footer } from '@/components/Footer';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default function TeamMemberProfilePage() {
   const routeParams = useParams();
@@ -34,15 +35,15 @@ export default function TeamMemberProfilePage() {
 
   if (!member) {
     return (
-      <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-between transition-colors">
         <div className="max-w-xl mx-auto px-4 py-24 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-4 border border-rose-200">
+          <div className="w-16 h-16 rounded-2xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-400 flex items-center justify-center mx-auto mb-4 border border-rose-200 dark:border-rose-900/60">
             <Award className="w-8 h-8" />
           </div>
-          <h1 className="text-2xl font-bold text-slate-900 mb-2">
+          <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
             {language === 'id' ? 'Personil Tidak Ditemukan' : 'Personnel Not Found'}
           </h1>
-          <p className="text-sm text-slate-600 mb-6">
+          <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
             {language === 'id'
               ? 'Profil anggota tim yang Anda cari tidak tersedia dalam direktori.'
               : 'The team member profile you are looking for is not available in our directory.'}
@@ -70,14 +71,14 @@ export default function TeamMemberProfilePage() {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-between selection:bg-blue-600 selection:text-white transition-colors duration-200">
       <div>
         {/* Back Navigation Bar */}
-        <div className="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <div className="bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
           <div className="max-w-6xl mx-auto px-4 sm:px-8 py-3.5 flex items-center justify-between gap-4">
             <Link
               href={`/${language}/#team`}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition min-h-[44px]"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition min-h-[44px]"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>
@@ -85,20 +86,21 @@ export default function TeamMemberProfilePage() {
               </span>
             </Link>
 
-            <div className="flex items-center gap-4">
-              {/* Language Switcher in Profile Header */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              {/* Controls: Theme & Language */}
+              <ThemeToggle />
               <LanguageSwitcher />
 
-              <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400">
-                <Link href={`/${language}`} className="hover:text-slate-600 transition">
+              <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
+                <Link href={`/${language}`} className="hover:text-slate-600 dark:hover:text-slate-300 transition">
                   {language === 'id' ? 'Beranda' : 'Home'}
                 </Link>
                 <ChevronRight className="w-3.5 h-3.5" />
-                <Link href={`/${language}/#team`} className="hover:text-slate-600 transition">
+                <Link href={`/${language}/#team`} className="hover:text-slate-600 dark:hover:text-slate-300 transition">
                   {language === 'id' ? 'Tim' : 'Team'}
                 </Link>
                 <ChevronRight className="w-3.5 h-3.5" />
-                <span className="text-slate-900 font-medium truncate max-w-[120px] sm:max-w-[200px]">
+                <span className="text-slate-900 dark:text-white font-medium truncate max-w-[120px] sm:max-w-[200px]">
                   {member.name}
                 </span>
               </div>
@@ -129,8 +131,8 @@ export default function TeamMemberProfilePage() {
             }
 
             return (
-              <div className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl bg-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/50 via-sky-50/30 to-transparent rounded-full blur-3xl pointer-events-none" />
+              <div className="glass-card rounded-3xl p-6 sm:p-10 border border-slate-200 dark:border-slate-800 shadow-xl bg-white dark:bg-slate-900 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-blue-100/50 dark:from-blue-900/20 via-sky-50/30 dark:via-sky-950/20 to-transparent rounded-full blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   <div className="lg:col-span-5 flex justify-center">
@@ -178,37 +180,37 @@ export default function TeamMemberProfilePage() {
                         >
                           {language === 'id' ? member.badgeId : member.badgeEn}
                         </span>
-                        <span className="px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-semibold text-slate-700">
+                        <span className="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
                           {language === 'id'
                             ? member.departmentNameId
                             : member.departmentNameEn}
                         </span>
                       </div>
 
-                      <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                      <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                         {member.name}
                       </h1>
 
-                      <p className="text-base font-semibold text-blue-600">
+                      <p className="text-base font-semibold text-blue-600 dark:text-blue-400">
                         {language === 'id' ? member.roleId : member.roleEn}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600">
-                      <div className="flex items-center gap-1.5 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200">
-                        <MapPin className="w-4 h-4 text-blue-600" />
+                    <div className="flex flex-wrap items-center gap-3 text-xs text-slate-600 dark:text-slate-300">
+                      <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800/80 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         <span>{member.location}</span>
                       </div>
-                      <div className="flex items-center gap-1.5 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200">
-                        <Briefcase className="w-4 h-4 text-blue-600" />
+                      <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800/80 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <Briefcase className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         <span>
                           {language === 'id'
                             ? member.experienceId
                             : member.experienceEn}
                         </span>
                       </div>
-                      <div className="flex items-center gap-1.5 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200">
-                        <GraduationCap className="w-4 h-4 text-blue-600" />
+                      <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800/80 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700">
+                        <GraduationCap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                         <span>
                           {language === 'id'
                             ? member.educationId
@@ -217,12 +219,12 @@ export default function TeamMemberProfilePage() {
                       </div>
                     </div>
 
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {language === 'id' ? member.bioId : member.bioEn}
                     </p>
 
                     {member.quoteId && (
-                      <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-100 text-xs italic text-blue-950 font-medium leading-relaxed">
+                      <div className="p-4 rounded-2xl bg-blue-50/80 dark:bg-blue-950/40 border border-blue-100 dark:border-blue-900/60 text-xs italic text-blue-950 dark:text-blue-200 font-medium leading-relaxed">
                         {language === 'id' ? member.quoteId : member.quoteEn}
                       </div>
                     )}
@@ -241,9 +243,9 @@ export default function TeamMemberProfilePage() {
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600 transition min-h-[44px]"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-blue-300 dark:hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition min-h-[44px]"
                         >
-                          <Linkedin className="w-4 h-4 text-blue-600 shrink-0" />
+                          <Linkedin className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                           <span>LinkedIn</span>
                         </a>
                       )}
@@ -253,9 +255,9 @@ export default function TeamMemberProfilePage() {
                           href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-slate-700 hover:border-blue-300 hover:text-blue-600 transition min-h-[44px]"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-300 hover:border-blue-300 dark:hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition min-h-[44px]"
                         >
-                          <Github className="w-4 h-4 text-slate-800 shrink-0" />
+                          <Github className="w-4 h-4 text-slate-800 dark:text-slate-200 shrink-0" />
                           <span>GitHub</span>
                         </a>
                       )}
@@ -269,9 +271,9 @@ export default function TeamMemberProfilePage() {
           {/* Biodata & Responsibilities Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-7 space-y-8">
-              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 bg-white shadow-sm space-y-4">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
-                  <Award className="w-5 h-5 text-blue-600" />
+              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-4">
+                <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-base">
+                  <Award className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   <h2>
                     {language === 'id'
                       ? 'Keahlian & Kompetensi Utama'
@@ -283,7 +285,7 @@ export default function TeamMemberProfilePage() {
                   {member.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-3.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-800 shadow-2xs hover:border-blue-300 hover:text-blue-600 transition"
+                      className="px-3.5 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-semibold text-slate-800 dark:text-slate-200 shadow-2xs hover:border-blue-300 dark:hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-blue-400 transition"
                     >
                       {skill}
                     </span>
@@ -291,16 +293,16 @@ export default function TeamMemberProfilePage() {
                 </div>
               </div>
 
-              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 bg-white shadow-sm space-y-3">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
-                  <Compass className="w-5 h-5 text-blue-600" />
+              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-3">
+                <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-base">
+                  <Compass className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   <h2>
                     {language === 'id'
                       ? 'Kerangka Kerja & Kontribusi'
                       : 'Operational Framework'}
                   </h2>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                   {language === 'id'
                     ? `Sebagai bagian dari ${member.departmentNameId} di Rynertia Arc Tech, personil ini memegang peran krusial dalam memastikan deliverable proyek enterprise memenuhi standar kualitas, efisiensi, dan skalabilitas maksimal.`
                     : `As part of the ${member.departmentNameEn} at Rynertia Arc Tech, this personnel holds a pivotal role in ensuring enterprise project deliverables achieve the highest standards of quality, efficiency, and scalability.`}
@@ -309,9 +311,9 @@ export default function TeamMemberProfilePage() {
             </div>
 
             <div className="lg:col-span-5 space-y-8">
-              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 bg-white shadow-sm space-y-5">
-                <div className="flex items-center gap-2 text-slate-900 font-bold text-base">
-                  <Layers className="w-5 h-5 text-blue-600" />
+              <div className="glass-card rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-5">
+                <div className="flex items-center gap-2 text-slate-900 dark:text-white font-bold text-base">
+                  <Layers className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                   <h2>
                     {language === 'id'
                       ? 'Tanggung Jawab Utama'
@@ -326,7 +328,7 @@ export default function TeamMemberProfilePage() {
                   ).map((resp, idx) => (
                     <li
                       key={idx}
-                      className="flex items-start gap-3 text-xs text-slate-600"
+                      className="flex items-start gap-3 text-xs text-slate-600 dark:text-slate-300"
                     >
                       <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{resp}</span>
@@ -339,15 +341,15 @@ export default function TeamMemberProfilePage() {
 
           {/* Related Colleagues */}
           {departmentMembers.length > 0 && (
-            <div className="space-y-6 pt-6 border-t border-slate-200">
+            <div className="space-y-6 pt-6 border-t border-slate-200 dark:border-slate-800">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                     {language === 'id'
                       ? `Rekan Satu Tim (${member.departmentNameId})`
                       : `Team Colleagues (${member.departmentNameEn})`}
                   </h3>
-                  <p className="text-xs text-slate-500 mt-0.5">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                     {language === 'id'
                       ? 'Personil lain dalam divisi yang sama di Rynertia Arc Tech'
                       : 'Other personnel collaborating in the same department'}
@@ -355,7 +357,7 @@ export default function TeamMemberProfilePage() {
                 </div>
                 <Link
                   href={`/${language}/#team`}
-                  className="text-xs font-semibold text-blue-600 hover:underline"
+                  className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
                 >
                   {language === 'id' ? 'Lihat Semua Personil (16)' : 'View All Personnel (16)'}
                 </Link>
@@ -381,7 +383,7 @@ export default function TeamMemberProfilePage() {
                     <Link
                       key={peer.id}
                       href={`/${language}/team/${peer.id}`}
-                      className="group block relative overflow-hidden rounded-tl-[36px] rounded-tr-xl rounded-b-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-slate-900"
+                      className="group block relative overflow-hidden rounded-tl-[36px] rounded-tr-xl rounded-b-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-slate-900 border border-transparent dark:border-slate-800"
                     >
                       <div
                         className={`absolute inset-0 bg-gradient-to-b ${peerGradient} opacity-90 transition-opacity group-hover:opacity-100`}

@@ -26,7 +26,7 @@ export default function IndustriesPage() {
   const sectorList = [
     {
       id: 'banking',
-      icon: <Landmark className="w-5 h-5 text-blue-600" />,
+      icon: <Landmark className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
       titleId: 'Perbankan & Jasa Keuangan',
       titleEn: 'Banking & Financial Services',
       descId: 'Otomasi persetujuan kredit, integrasi core banking terdistribusi, dan kepatuhan standar transaksi ISO 20022.',
@@ -36,7 +36,7 @@ export default function IndustriesPage() {
     },
     {
       id: 'telco',
-      icon: <Radio className="w-5 h-5 text-sky-600" />,
+      icon: <Radio className="w-5 h-5 text-sky-600 dark:text-sky-400" />,
       titleId: 'Telekomunikasi & Layanan Digital',
       titleEn: 'Telecommunications & Digital Services',
       descId: 'Orkestrasi alur kerja BSS/OSS, portal mandiri pelanggan, dan penanganan lonjakan transaksi berkonkurensi tinggi.',
@@ -46,7 +46,7 @@ export default function IndustriesPage() {
     },
     {
       id: 'healthcare',
-      icon: <HeartPulse className="w-5 h-5 text-emerald-600" />,
+      icon: <HeartPulse className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
       titleId: 'Layanan Kesehatan & Rumah Sakit',
       titleEn: 'Healthcare & Hospital Systems',
       descId: 'Sistem informasi rumah sakit (HIS) terintegrasi, rekam medis elektronik (EMR), dan interoperabilitas data pasien.',
@@ -56,7 +56,7 @@ export default function IndustriesPage() {
     },
     {
       id: 'logistics',
-      icon: <Truck className="w-5 h-5 text-indigo-600" />,
+      icon: <Truck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
       titleId: 'Logistik & Rantai Pasok',
       titleEn: 'Logistics & Supply Chain',
       descId: 'Optimasi sistem manajemen pergudangan (WMS), pelacakan rute armada IoT, dan orkestrasi inventaris real-time.',
@@ -66,7 +66,7 @@ export default function IndustriesPage() {
     },
     {
       id: 'manufacturing',
-      icon: <Factory className="w-5 h-5 text-amber-600" />,
+      icon: <Factory className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
       titleId: 'Manufaktur & IoT Industri',
       titleEn: 'Manufacturing & Industrial IoT',
       descId: 'Integrasi sensor SCADA ke sistem eksekusi manufaktur (MES), pemantauan OEE perakitan, dan predictive maintenance.',
@@ -76,7 +76,7 @@ export default function IndustriesPage() {
     },
     {
       id: 'governance',
-      icon: <Building2 className="w-5 h-5 text-purple-600" />,
+      icon: <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
       titleId: 'Sektor Publik & Pemerintahan',
       titleEn: 'Public Sector & Governance',
       descId: 'Portal pelayanan publik terpadu, sistem e-procurement terstandarisasi, serta kepatuhan arsitektur SPBE.',
@@ -94,7 +94,7 @@ export default function IndustriesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
 
@@ -130,7 +130,7 @@ export default function IndustriesPage() {
       </section>
 
       {/* Industries Grid with Linked Portfolio Case Studies */}
-      <section className="py-14 sm:py-20 bg-slate-50">
+      <section className="py-14 sm:py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-12">
           <div className="space-y-10">
             {sectorList.map((sector) => {
@@ -141,18 +141,18 @@ export default function IndustriesPage() {
               return (
                 <div
                   key={sector.id}
-                  className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all space-y-6"
+                  className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all space-y-6"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-slate-100 dark:border-slate-800">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center justify-center shrink-0">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-transparent border border-slate-200/80 dark:border-transparent flex items-center justify-center shrink-0">
                         {sector.icon}
                       </div>
                       <div className="space-y-1">
-                        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+                        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
                           {title}
                         </h2>
-                        <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-2xl leading-relaxed">
                           {desc}
                         </p>
                       </div>
@@ -162,7 +162,7 @@ export default function IndustriesPage() {
                       {sector.standards.map((std, sIdx) => (
                         <span
                           key={sIdx}
-                          className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-600 bg-slate-100 border border-slate-200/70 px-2.5 py-1 rounded-md"
+                          className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 px-2.5 py-1 rounded-md"
                         >
                           <CheckCircle2 className="w-3 h-3 text-blue-500" />
                           {std}
@@ -174,7 +174,7 @@ export default function IndustriesPage() {
                   {/* Matching Case Studies */}
                   {matchingProjects.length > 0 && (
                     <div className="space-y-3 pt-1">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block">
                         {t('page-industries-related-portfolio')} ({matchingProjects.length})
                       </span>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -182,17 +182,17 @@ export default function IndustriesPage() {
                           <Link
                             key={proj.id}
                             href={`/${language}/portfolio/${proj.id}`}
-                            className="p-4 rounded-2xl bg-slate-50 hover:bg-blue-50/50 border border-slate-200/80 hover:border-blue-200 transition-all flex items-center justify-between gap-4 group"
+                            className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-blue-50/50 dark:hover:bg-slate-800 border border-slate-200/80 dark:border-slate-700 hover:border-blue-200 dark:hover:border-blue-500/50 transition-all flex items-center justify-between gap-4 group"
                           >
                             <div className="space-y-1 min-w-0">
-                              <span className="text-[11px] font-mono text-blue-600 font-semibold block">
+                              <span className="text-[11px] font-mono text-blue-600 dark:text-blue-400 font-semibold block">
                                 {proj.clientName}
                               </span>
-                              <h3 className="text-sm font-bold text-slate-900 truncate group-hover:text-blue-600 transition-colors">
+                              <h3 className="text-sm font-bold text-slate-900 dark:text-white truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                 {language === 'id' ? proj.titleId : proj.titleEn}
                               </h3>
                             </div>
-                            <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-blue-600 shrink-0 transition-colors" />
+                            <ExternalLink className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 shrink-0 transition-colors" />
                           </Link>
                         ))}
                       </div>

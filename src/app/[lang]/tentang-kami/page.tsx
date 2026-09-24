@@ -42,7 +42,7 @@ export default async function AboutPage({
   const isEn = activeLang === 'en';
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
 
@@ -84,7 +84,7 @@ export default async function AboutPage({
       <About />
 
       {/* Strategic Call to Action */}
-      <section className="py-14 sm:py-20 bg-white border-t border-slate-200/80">
+      <section className="py-14 sm:py-20 bg-white dark:bg-slate-950 border-t border-slate-200/80 dark:border-slate-800 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           <FadeIn direction="up">
             <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-8">

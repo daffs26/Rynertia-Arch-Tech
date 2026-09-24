@@ -38,7 +38,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50 flex flex-col relative">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative transition-colors duration-200">
       <ScrollProgressBar />
       <Navbar />
 
@@ -84,7 +84,7 @@ export default function ServicesPage() {
       </section>
 
       {/* 4 Detailed Service Pillar Cards */}
-      <section className="py-14 sm:py-20 bg-slate-50">
+      <section className="py-14 sm:py-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-12">
           <StaggerContainer staggerDelay={0.1} className="space-y-8">
             {servicePillars.map(pillar => {
@@ -94,7 +94,7 @@ export default function ServicesPage() {
 
               return (
                 <StaggerItem key={pillar.pillar}>
-                  <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all duration-200">
+                  <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-all duration-200">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                       {/* Left: Identity, Description & Deliverables */}
                       <div className="lg:col-span-5 space-y-5">
@@ -103,31 +103,31 @@ export default function ServicesPage() {
                             {getIcon(pillar.icon)}
                           </div>
                           <div>
-                            <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 block">
+                            <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 block">
                               {pillar.pillar}
                             </span>
-                            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">
+                            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
                               {t(pillar.titleKey)}
                             </h2>
                           </div>
                         </div>
 
-                        <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                           {t(pillar.descKey)}
                         </p>
 
                         {/* Deliverables tags */}
                         <div className="space-y-2 pt-1">
-                          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                             {t('srv-deliverables-title')}
                           </span>
                           <div className="flex flex-wrap gap-2">
                             {deliverables.map((item, dIdx) => (
                               <span
                                 key={dIdx}
-                                className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 bg-slate-100 border border-slate-200/80 px-3 py-1 rounded-lg"
+                                className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 px-3 py-1 rounded-lg"
                               >
-                                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
+                                <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                                 {item}
                               </span>
                             ))}
@@ -149,27 +149,27 @@ export default function ServicesPage() {
                       {/* Right: Problem Solved & Value Delivered */}
                       <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-5">
                         {/* Problem Solved Card */}
-                        <div className="bg-rose-50/50 border border-rose-200/80 rounded-2xl p-5 sm:p-6 space-y-3">
-                          <div className="flex items-center gap-2 text-rose-700">
+                        <div className="bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/80 dark:border-rose-900/40 rounded-2xl p-5 sm:p-6 space-y-3">
+                          <div className="flex items-center gap-2 text-rose-700 dark:text-rose-400">
                             <AlertCircle className="w-4 h-4 shrink-0" />
                             <h3 className="text-xs font-bold uppercase tracking-wider">
                               {t('page-services-problem-heading')}
                             </h3>
                           </div>
-                          <p className="text-xs text-slate-700 leading-relaxed">
+                          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                             {problem}
                           </p>
                         </div>
 
                         {/* Value Delivered Card */}
-                        <div className="bg-emerald-50/50 border border-emerald-200/80 rounded-2xl p-5 sm:p-6 space-y-3">
-                          <div className="flex items-center gap-2 text-emerald-700">
+                        <div className="bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/80 dark:border-emerald-900/40 rounded-2xl p-5 sm:p-6 space-y-3">
+                          <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400">
                             <CheckCircle2 className="w-4 h-4 shrink-0" />
                             <h3 className="text-xs font-bold uppercase tracking-wider">
                               {t('page-services-value-heading')}
                             </h3>
                           </div>
-                          <p className="text-xs text-slate-700 leading-relaxed">
+                          <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                             {value}
                           </p>
                         </div>

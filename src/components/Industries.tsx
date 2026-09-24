@@ -21,48 +21,48 @@ export const Industries: React.FC = () => {
   const industries = [
     {
       id: 'banking',
-      icon: <Landmark className="w-5 h-5 text-blue-600" />,
-      bg: 'bg-blue-50/80 border-blue-200/60',
+      icon: <Landmark className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+      bg: 'bg-blue-50/80 border-blue-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-1-title' as const,
       descKey: 'ind-1-desc' as const,
       tagsKey: 'ind-1-tags' as const,
     },
     {
       id: 'telco',
-      icon: <Radio className="w-5 h-5 text-sky-600" />,
-      bg: 'bg-sky-50/80 border-sky-200/60',
+      icon: <Radio className="w-5 h-5 text-sky-600 dark:text-sky-400" />,
+      bg: 'bg-sky-50/80 border-sky-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-2-title' as const,
       descKey: 'ind-2-desc' as const,
       tagsKey: 'ind-2-tags' as const,
     },
     {
       id: 'healthcare',
-      icon: <HeartPulse className="w-5 h-5 text-emerald-600" />,
-      bg: 'bg-emerald-50/80 border-emerald-200/60',
+      icon: <HeartPulse className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+      bg: 'bg-emerald-50/80 border-emerald-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-3-title' as const,
       descKey: 'ind-3-desc' as const,
       tagsKey: 'ind-3-tags' as const,
     },
     {
       id: 'logistics',
-      icon: <Truck className="w-5 h-5 text-indigo-600" />,
-      bg: 'bg-indigo-50/80 border-indigo-200/60',
+      icon: <Truck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />,
+      bg: 'bg-indigo-50/80 border-indigo-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-4-title' as const,
       descKey: 'ind-4-desc' as const,
       tagsKey: 'ind-4-tags' as const,
     },
     {
       id: 'manufacturing',
-      icon: <Factory className="w-5 h-5 text-amber-600" />,
-      bg: 'bg-amber-50/80 border-amber-200/60',
+      icon: <Factory className="w-5 h-5 text-amber-600 dark:text-amber-400" />,
+      bg: 'bg-amber-50/80 border-amber-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-5-title' as const,
       descKey: 'ind-5-desc' as const,
       tagsKey: 'ind-5-tags' as const,
     },
     {
       id: 'governance',
-      icon: <Building2 className="w-5 h-5 text-purple-600" />,
-      bg: 'bg-purple-50/80 border-purple-200/60',
+      icon: <Building2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
+      bg: 'bg-purple-50/80 border-purple-200/60 dark:bg-transparent dark:border-transparent',
       titleKey: 'ind-6-title' as const,
       descKey: 'ind-6-desc' as const,
       tagsKey: 'ind-6-tags' as const,
@@ -100,7 +100,7 @@ export const Industries: React.FC = () => {
                 <div className="bg-slate-50/70 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-white dark:hover:bg-slate-900 rounded-2xl p-5 sm:p-6 transition-all duration-200 shadow-sm hover:shadow-md flex flex-col justify-between h-full group">
                   <div className="space-y-4">
                     <div
-                      className={`w-11 h-11 rounded-xl border flex items-center justify-center shadow-xs ${ind.bg}`}
+                      className={`w-11 h-11 rounded-xl border flex items-center justify-center shadow-xs dark:shadow-none dark:border-transparent dark:bg-transparent transition-colors ${ind.bg}`}
                     >
                       {ind.icon}
                     </div>

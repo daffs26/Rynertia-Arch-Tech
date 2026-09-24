@@ -10,6 +10,7 @@ import { NewsCompactRow } from '@/components/NewsCompactRow';
 import { NewsFounderCard } from '@/components/NewsFounderCard';
 import { Footer } from '@/components/Footer';
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import {
   FadeIn,
   StaggerContainer,
@@ -42,21 +43,21 @@ export default function NewsCatalogPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col relative selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col relative selection:bg-blue-600 selection:text-white transition-colors duration-200">
       <ScrollProgressBar />
 
       {/* Top Sticky Header */}
-      <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
+      <header className="sticky top-0 z-40 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-8 h-16 flex items-center justify-between gap-3">
           {/* Back to Home Link */}
           <Link
             href={`/${language}`}
-            className="flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-blue-600 transition-colors group cursor-pointer shrink-0 min-h-[44px]"
+            className="flex items-center gap-2 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group cursor-pointer shrink-0 min-h-[44px]"
           >
-            <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+            <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-900 border border-transparent dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 group-hover:bg-blue-50 dark:group-hover:bg-blue-950/50 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
             </div>
-            <span className="hidden sm:inline font-medium text-slate-700 group-hover:text-blue-600">
+            <span className="hidden sm:inline font-medium text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400">
               {language === 'id' ? 'Kembali ke Beranda' : 'Back to Home'}
             </span>
           </Link>
@@ -64,13 +65,16 @@ export default function NewsCatalogPage() {
           {/* Brand Logo & Name */}
           <Link href={`/${language}`} className="flex items-center gap-2.5">
             <img src="/logo-icon.png" alt="Rynertia Logo" className="w-7 h-7 object-contain" />
-            <span className="font-bold text-slate-900 tracking-tight text-sm sm:text-base">
-              RYNERTIA <span className="text-blue-600">ARC TECH</span>
+            <span className="font-bold text-slate-900 dark:text-white tracking-tight text-sm sm:text-base">
+              RYNERTIA <span className="text-blue-600 dark:text-blue-400">ARC TECH</span>
             </span>
           </Link>
 
-          {/* Language Switcher */}
-          <LanguageSwitcher />
+          {/* Controls: Theme & Language */}
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -79,10 +83,10 @@ export default function NewsCatalogPage() {
         {/* Page Title & Context */}
         <FadeIn direction="up">
           <div className="mb-8 sm:mb-12">
-            <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-2">
               {t('news-header-title')}
             </h1>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
               {t('news-header-subtitle')}
             </p>
           </div>
@@ -100,7 +104,7 @@ export default function NewsCatalogPage() {
           {/* Right: Latest Post Column (5 cols) */}
           <div className="lg:col-span-5 flex flex-col">
             <FadeIn direction="up" delay={0.2}>
-              <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-4 pb-2 border-b border-slate-200/80">
+              <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200/80 dark:border-slate-800">
                 {t('news-latest-posts')}
               </h2>
             </FadeIn>
@@ -116,17 +120,17 @@ export default function NewsCatalogPage() {
         </div>
 
         {/* Divider */}
-        <div className="w-full border-t border-slate-200/80 mb-10 sm:mb-14" />
+        <div className="w-full border-t border-slate-200/80 dark:border-slate-800 mb-10 sm:mb-14" />
 
         {/* Bottom Section: Founders Corner */}
         <section className="mb-14 sm:mb-20">
           <div className="flex items-center justify-between gap-4 mb-6 sm:mb-8">
             <FadeIn direction="right">
               <div>
-                <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
                   {t('news-founders-corner')}
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                   {language === 'id'
                     ? 'Perspektif strategis langsung dari para pendiri dan pimpinan Rynertia Arc Tech'
                     : 'Strategic perspectives authored directly by Rynertia Arc Tech leadership'}
@@ -138,14 +142,14 @@ export default function NewsCatalogPage() {
               <button
                 onClick={handlePrevFounder}
                 aria-label="Previous founders article"
-                className="w-9 h-9 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-100 hover:border-blue-600 hover:text-blue-600 transition-colors shadow-xs cursor-pointer"
+                className="w-9 h-9 rounded-full border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-blue-600 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs cursor-pointer"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNextFounder}
                 aria-label="Next founders article"
-                className="w-9 h-9 rounded-full border border-slate-300 bg-white flex items-center justify-center text-slate-700 hover:bg-slate-100 hover:border-blue-600 hover:text-blue-600 transition-colors shadow-xs cursor-pointer"
+                className="w-9 h-9 rounded-full border border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-blue-600 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors shadow-xs cursor-pointer"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>

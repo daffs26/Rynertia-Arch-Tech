@@ -18,10 +18,10 @@ export const NewsCompactRow: React.FC<NewsCompactRowProps> = ({ article }) => {
   return (
     <Link
       href={`/${language}/${language === 'en' ? 'news' : 'berita'}/${article.slug}`}
-      className="group flex items-center gap-4 p-2 rounded-2xl hover:bg-slate-100/80 transition-colors duration-200"
+      className="group flex items-center gap-4 p-2 rounded-2xl hover:bg-slate-100/80 dark:hover:bg-slate-900/80 transition-colors duration-200"
     >
       {/* Square Rounded Thumbnail */}
-      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 bg-slate-200 border border-slate-200/80 shadow-sm">
+      <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden shrink-0 bg-slate-200 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800 shadow-sm">
         <img
           src={article.coverImage}
           alt={title}
@@ -31,10 +31,10 @@ export const NewsCompactRow: React.FC<NewsCompactRowProps> = ({ article }) => {
 
       {/* Text Info */}
       <div className="flex-1 min-w-0">
-        <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+        <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
           {title}
         </h3>
-        <p className="text-xs text-slate-500 font-medium mt-2">
+        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-2">
           {date} &middot; {article.readTimeMinutes} {t('news-min-read')}
         </p>
       </div>
