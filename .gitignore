@@ -10,6 +10,7 @@
 .cursor/
 *.cursorrules
 .claude/
+.codegraph/
 *.b64
 femas_b64.txt
 generate_high_res_assets.py

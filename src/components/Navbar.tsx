@@ -3,7 +3,20 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ArrowRight, Menu, X, ChevronDown } from 'lucide-react';
+import {
+  ArrowRight,
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  Building2,
+  Layers,
+  Cpu,
+  FolderKanban,
+  Bell,
+  Mail,
+  LayoutDashboard,
+} from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
@@ -74,39 +87,46 @@ export const Navbar: React.FC = () => {
     setMobileMenuOpen(prev => !prev);
   };
 
-  const aboutSubLinks = [
+  interface SubLinkItem {
+    href: string;
+    id: string;
+    title: string;
+    desc?: string;
+  }
+
+  const aboutSubLinks: SubLinkItem[] = [
     {
       href: `/${language}/tentang-kami`,
       id: 'about',
       title: language === 'id' ? 'Profil Perusahaan' : 'Company Profile',
-      desc: language === 'id' ? 'Fokus rekayasa & arsitektur enterprise' : 'Core engineering & enterprise architecture',
+      desc: language === 'id' ? 'Profil resmi dan identitas korporat' : 'Official corporate profile & identity',
     },
     {
       href: `/${language}/tentang-kami#philosophy`,
       id: 'about-philosophy',
-      title: language === 'id' ? 'Filosofi & Identitas' : 'Philosophy & Identity',
-      desc: language === 'id' ? 'Makna logo & spektrum nilai korporat' : 'Logo meaning & corporate values',
+      title: language === 'id' ? 'Filosofi & Identitas' : 'Philosophy & Identity',   
+      desc: language === 'id' ? 'Nilai rekayasa dan pilar operasional' : 'Engineering values & operational pillars',
     },
     {
       href: `/${language}/organisasi`,
       id: 'team',
       title: language === 'id' ? 'Struktur Organisasi & Tim' : 'Organization & Team',
-      desc: language === 'id' ? '16 personil spesialis riset & rekayasa' : '16 research & engineering specialists',
+      desc: language === 'id' ? 'Bagan struktural dan dewan konsultan' : 'Organizational chart & advisory crew',
     },
   ];
 
-  const servicesSubLinks = [
+  const servicesSubLinks: SubLinkItem[] = [
     {
       href: `/${language}/layanan`,
       id: 'services',
       title: language === 'id' ? 'Layanan Rekayasa Sistem' : 'System Engineering Services',
-      desc: language === 'id' ? '4 pilar riset BPMN, arsitektur software, & UI/UX' : '4 pillars: BPMN research, software architecture, & UI/UX',
+      desc: language === 'id' ? '4 pilar kapabilitas enterprise' : '4 enterprise capability pillars',
     },
     {
       href: `/${language}/industri`,
       id: 'industries',
       title: language === 'id' ? 'Sektor Industri Terapan' : 'Applied Industry Sectors',
-      desc: language === 'id' ? 'Perbankan, rantai pasok, telekomunikasi, & kesehatan' : 'Banking, supply chain, telecommunications, & healthcare',
+      desc: language === 'id' ? 'Kepatuhan standar perbankan hingga manufaktur' : 'From banking compliance to manufacturing',
     },
   ];
 
@@ -484,137 +504,225 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Styled per Reference Design */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 px-5 py-5 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
-          <div className="space-y-1">
-            {/* Beranda */}
+        <div className="lg:hidden bg-white/98 dark:bg-slate-950/98 backdrop-blur-2xl border-b border-slate-200/90 dark:border-slate-800 px-4 py-4 space-y-4 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+          <nav className="space-y-1">
+            {/* 1. Beranda (Dashboard/Home Item) */}
             <Link
               href={`/${language}/#home`}
               onClick={() => {
                 setActiveSection('home');
                 setMobileMenuOpen(false);
               }}
-              className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm transition min-h-[48px] ${
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
                 activeSection === 'home'
-                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-bold border border-blue-200/80 dark:border-blue-900/60 shadow-xs'
-                  : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
+                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-900/50'
+                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
               }`}
             >
-              <span className="block font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">{t('nav-home')}</span>
-              <ArrowRight className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+              <Home className={`w-4 h-4 shrink-0 ${activeSection === 'home' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+              <span>{t('nav-home')}</span>
             </Link>
 
-            {/* Tentang Kami Accordion in Mobile */}
-            <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden">
+            {/* 2. Tentang Kami (Accordion with Tree Line Guide - matches Workspace in reference) */}
+            <div>
               <button
+                type="button"
                 onClick={() => setMobileAboutOpen(prev => !prev)}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 bg-slate-50/70 dark:bg-slate-900/60 min-h-[48px]"
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                  mobileAboutOpen
+                    ? 'bg-slate-100/80 dark:bg-slate-900 text-slate-900 dark:text-white font-semibold'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+                }`}
               >
-                <span className="block font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">{t('nav-about')}</span>
+                <div className="flex items-center gap-3">
+                  <Building2 className={`w-4 h-4 shrink-0 ${mobileAboutOpen ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+                  <span>{t('nav-about')}</span>
+                </div>
                 <ChevronDown
                   className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
                     mobileAboutOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
                   }`}
                 />
               </button>
+
+              {/* Tree Connector & Indented Sub-items */}
               {mobileAboutOpen && (
-                <div className="p-2 space-y-1 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
-                  {aboutSubLinks.map(sub => (
-                    <Link
-                      key={sub.href}
-                      href={sub.href}
-                      onClick={() => {
-                        setActiveSection(sub.id);
-                        setMobileMenuOpen(false);
-                      }}
-                      className="block px-3 py-2 rounded-lg text-xs hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <span className="font-bold block text-slate-800 dark:text-slate-200">{sub.title}</span>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 block">{sub.desc}</span>
-                    </Link>
-                  ))}
+                <div className="relative ml-5 pl-4 border-l border-slate-200 dark:border-slate-800 space-y-0.5 my-1.5">
+                  {aboutSubLinks.map(sub => {
+                    const isSubActive = activeSection === sub.id;
+                    return (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => {
+                          setActiveSection(sub.id);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`block px-3 py-2 rounded-lg text-xs sm:text-sm transition-colors cursor-pointer ${
+                          isSubActive
+                            ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+                        }`}
+                      >
+                        {sub.title}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
-            {/* Layanan & Industri Accordion in Mobile */}
-            <div className="rounded-xl border border-slate-200/80 dark:border-slate-800 overflow-hidden">
+            {/* 3. Layanan & Industri (Accordion with Tree Line Guide) */}
+            <div>
               <button
+                type="button"
                 onClick={() => setMobileServicesOpen(prev => !prev)}
-                className="w-full flex items-center justify-between px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-200 bg-slate-50/70 dark:bg-slate-900/60 min-h-[48px]"
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                  mobileServicesOpen
+                    ? 'bg-slate-100/80 dark:bg-slate-900 text-slate-900 dark:text-white font-semibold'
+                    : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+                }`}
               >
-                <span className="block font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">
-                  {t('nav-services-industries')}
-                </span>
+                <div className="flex items-center gap-3">
+                  <Layers className={`w-4 h-4 shrink-0 ${mobileServicesOpen ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+                  <span>{t('nav-services-industries')}</span>
+                </div>
                 <ChevronDown
                   className={`w-4 h-4 text-slate-500 transition-transform duration-200 ${
                     mobileServicesOpen ? 'rotate-180 text-blue-600 dark:text-blue-400' : ''
                   }`}
                 />
               </button>
+
+              {/* Tree Connector & Indented Sub-items */}
               {mobileServicesOpen && (
-                <div className="p-2 space-y-1 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
-                  {servicesSubLinks.map(sub => (
-                    <Link
-                      key={sub.href}
-                      href={sub.href}
-                      onClick={() => {
-                        setActiveSection(sub.id);
-                        setMobileMenuOpen(false);
-                      }}
-                      className="block px-3 py-2 rounded-lg text-xs hover:bg-slate-50 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400"
-                    >
-                      <span className="font-bold block text-slate-800 dark:text-slate-200">{sub.title}</span>
-                      <span className="text-[11px] text-slate-500 dark:text-slate-400 block">{sub.desc}</span>
-                    </Link>
-                  ))}
+                <div className="relative ml-5 pl-4 border-l border-slate-200 dark:border-slate-800 space-y-0.5 my-1.5">
+                  {servicesSubLinks.map(sub => {
+                    const isSubActive = activeSection === sub.id;
+                    return (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        onClick={() => {
+                          setActiveSection(sub.id);
+                          setMobileMenuOpen(false);
+                        }}
+                        className={`block px-3 py-2 rounded-lg text-xs sm:text-sm transition-colors cursor-pointer ${
+                          isSubActive
+                            ? 'bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 font-semibold'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+                        }`}
+                      >
+                        {sub.title}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
-            {/* Primary Nav Links */}
-            {primaryNavLinks.map(link => {
-              const isActive = activeSection === link.id;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => {
-                    setActiveSection(link.id);
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-sm transition min-h-[48px] ${
-                    isActive
-                      ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-bold border border-blue-200/80 dark:border-blue-900/60 shadow-xs'
-                      : 'text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-900 hover:text-blue-600 dark:hover:text-blue-400 font-medium'
-                  }`}
-                >
-                  <span className="block font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white">{t(link.key)}</span>
-                  <ArrowRight
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      isActive ? 'text-blue-600 dark:text-blue-400 translate-x-1' : 'text-slate-400 dark:text-slate-500'
-                    }`}
-                  />
-                </Link>
-              );
-            })}
-          </div>
+            {/* 4. Solusi */}
+            <Link
+              href={`/${language}/#solutions`}
+              onClick={() => {
+                setActiveSection('solutions');
+                setMobileMenuOpen(false);
+              }}
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                activeSection === 'solutions'
+                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-900/50'
+                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+              }`}
+            >
+              <Cpu className={`w-4 h-4 shrink-0 ${activeSection === 'solutions' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+              <span>{t('nav-solutions')}</span>
+            </Link>
 
-          <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-3">
+            {/* 5. Portofolio */}
+            <Link
+              href={`/${language}/#portfolio`}
+              onClick={() => {
+                setActiveSection('portfolio');
+                setMobileMenuOpen(false);
+              }}
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                activeSection === 'portfolio'
+                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-900/50'
+                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+              }`}
+            >
+              <FolderKanban className={`w-4 h-4 shrink-0 ${activeSection === 'portfolio' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+              <span>{t('nav-portfolio')}</span>
+            </Link>
+
+            {/* 6. Berita & Wawasan (Updates equivalent with badge) */}
+            <Link
+              href={`/${language}/${language === 'en' ? 'news' : 'berita'}`}
+              onClick={() => {
+                setActiveSection('news');
+                setMobileMenuOpen(false);
+              }}
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                activeSection === 'news'
+                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-900/50'
+                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+              }`}
+            >
+              <Bell className={`w-4 h-4 shrink-0 ${activeSection === 'news' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+              <span>{t('nav-news')}</span>
+              <span className="ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-100 text-blue-700 dark:bg-blue-950 dark:text-blue-300">
+                8
+              </span>
+            </Link>
+
+            {/* 7. Kontak (Mail equivalent) */}
+            <Link
+              href={`/${language}/#contact`}
+              onClick={() => {
+                setActiveSection('contact');
+                setMobileMenuOpen(false);
+              }}
+              className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer min-h-[44px] ${
+                activeSection === 'contact'
+                  ? 'bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-semibold border border-blue-200/60 dark:border-blue-900/50'
+                  : 'text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900'
+              }`}
+            >
+              <Mail className={`w-4 h-4 shrink-0 ${activeSection === 'contact' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-400'}`} />
+              <span>{t('nav-contact')}</span>
+            </Link>
+
+            {/* 8. Web App Dashboard */}
+            <Link
+              href="/dashboard"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-900 transition-colors cursor-pointer min-h-[44px]"
+            >
+              <LayoutDashboard className="w-4 h-4 shrink-0 text-slate-500 dark:text-slate-400" />
+              <span>Web App Dashboard</span>
+              <span className="ml-auto px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
+                Live
+              </span>
+            </Link>
+          </nav>
+
+          {/* Drawer Footer Actions */}
+          <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
             <Link
               href={`/${language}/#contact`}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center gap-2 w-full text-center px-5 py-3.5 rounded-xl bg-blue-600 active:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-600/25 min-h-[48px]"
+              className="flex items-center justify-center gap-2 w-full text-center px-4 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold text-xs sm:text-sm shadow-md shadow-blue-600/25 min-h-[44px] transition-colors"
             >
               <span>{t('nav-cta')}</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
 
-            <div className="text-center pt-2">
+            <div className="text-center pt-1">
               <a
                 href="mailto:contact@rynertia.tech"
-                className="text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
+                className="text-[11px] font-medium text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition"
               >
                 contact@rynertia.tech
               </a>
