@@ -131,8 +131,8 @@ test('Performance QA: Static Asset Cache-Control Header Policy', async () => {
   }
 });
 
-// ── 4. Critical Media Optimization (Video & Poster) ──────────
-test('Performance QA: Critical Media Optimization (Hero Video & Poster)', async () => {
+// ── 4. Critical Media Optimization (Brand & Visual Assets) ──────────
+test('Performance QA: Critical Media Optimization (Brand & Visual Assets)', async () => {
   if (!(await isServerOnline())) {
     console.log('Server not online on http://localhost:3000. Skipping live performance check.');
     return;
@@ -141,21 +141,8 @@ test('Performance QA: Critical Media Optimization (Hero Video & Poster)', async 
   const homeRes = await fetch(`${baseUrl}/id`);
   const html = await homeRes.text();
 
-  // Video element verification
-  assert.ok(html.includes('<video'), 'Hero section must contain video tag');
-  assert.ok(html.includes('poster="/videos/jakarta-poster.webp"'), 'Video must have WebP poster for instant LCP');
-  assert.ok(html.includes('playsinline') || html.includes('playsInline'), 'Video must have playsInline attribute for mobile performance');
-  assert.ok(html.includes('muted'), 'Video must have muted attribute to allow autoplay without blocking');
-  assert.ok(html.includes('preload="metadata"'), 'Video must have preload="metadata" to prioritize initial paint bandwidth');
-
-  // Verify poster image exists and serves WebP headers
-  const posterRes = await fetch(`${baseUrl}/videos/jakarta-poster.webp`);
-  assert.equal(posterRes.status, 200, 'Poster image must return 200 OK');
-  const contentType = posterRes.headers.get('content-type') || '';
-  assert.ok(
-    contentType.includes('webp') || contentType.includes('image'),
-    'Poster must be served with proper image content-type'
-  );
+  // Brand logo verification
+  assert.ok(html.includes('rynertia-logo.png'), 'Hero section must display official brand logo');
 });
 
 // ── 5. Layout Shift Prevention (CLS Guards) ────────────────────

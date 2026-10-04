@@ -27,25 +27,11 @@ export const Hero: React.FC = () => {
       id="home"
       className="relative pt-8 pb-12 sm:pt-10 sm:pb-20 lg:pt-14 lg:pb-28 overflow-hidden bg-transparent border-b border-slate-200/80 dark:border-slate-800"
     >
-      {/* ── LOCAL 4K VIDEO BACKGROUND: 1-MINUTE CONTINUOUS NATIVE LOOP ─── */}
+      {/* ── AMBIENT ENTERPRISE HERO BACKGROUND ─── */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          poster="/videos/jakarta-poster.webp"
-          className="w-full h-full object-cover transition-opacity duration-1000 opacity-100"
-        >
-          <source src="/videos/jakarta-1min.mp4" type="video/mp4" />
-        </video>
-
-        {/* Directional Readability Mask: High contrast protection for text */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/50 to-transparent dark:from-slate-950/95 dark:via-slate-950/70 dark:to-transparent lg:bg-gradient-to-r lg:from-white/90 lg:via-white/45 lg:to-transparent lg:dark:from-slate-950/95 lg:dark:via-slate-950/70 lg:dark:to-transparent pointer-events-none" />
-
-        {/* Transparent soft bottom blend into the next section */}
-        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white/90 via-white/40 to-transparent dark:from-slate-950/95 dark:via-slate-950/50 dark:to-transparent pointer-events-none" />
+        <div className="absolute -top-40 -right-20 w-[500px] h-[500px] rounded-full bg-blue-500/10 dark:bg-blue-600/15 blur-[120px]" />
+        <div className="absolute top-1/3 -left-32 w-[450px] h-[450px] rounded-full bg-indigo-500/10 dark:bg-indigo-600/10 blur-[100px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:28px_28px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60 dark:opacity-40" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
