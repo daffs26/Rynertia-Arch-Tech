@@ -1,98 +1,104 @@
 # Rynertia Arc Tech
 
-> **Strategic Enterprise IT & Business Process Consulting**  
-> Enterprise Architecture · BPMN 2.0 Process Modeling · High-Performance Software Engineering Labs
+The official corporate web portal and digital platform for **Rynertia Arc Tech**, specializing in Enterprise IT Consulting, Enterprise Architecture, BPMN 2.0 Process Modeling, and Software Engineering Labs.
 
-Official enterprise company profile and web application for **Rynertia Arc Tech**, built with modern web technologies, internationalized routing (`/id` and `/en`), anti-slop design principles, and enterprise-grade security.
-
----
-
-## 🚀 Tech Stack
-
-- **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
-- **UI Library**: [React 19](https://react.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Custom Design Tokens
-- **Language**: [TypeScript 5](https://www.typescriptlang.org/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Testing**: Node.js Native Test Runner (`node:test`)
+Built with Next.js 15, React 19, TypeScript, and Tailwind CSS, featuring full bilingual support (Indonesian & English) and enterprise security configurations.
 
 ---
 
-## 🌐 Features
+## Tech Stack
 
-- **Multi-Language Architecture (i18n)**: Fully internationalized routing supporting Indonesian (`/id/...`) as primary default, and English (`/en/...`) via interactive flag dropdown switcher with URL preservation.
-- **Dedicated Public Pages**:
-  - `/id` / `/en` — Corporate Homepage (Hero, Value Proposition, Services, Solutions, Industries, Portfolio, News Sneak Peek)
-  - `/id/tentang-kami` / `/en/about-us` — Corporate Profile, Color Philosophy, Competency Pillars
-  - `/id/layanan` / `/en/services` — 4 Service Pillars (Problems Solved & Value Delivered)
-  - `/id/solusi` / `/en/solutions` — Enterprise Solutions (*Problem → Approach → Solution → Value*)
-  - `/id/industri` / `/en/industries` — 6 Enterprise Industry Sectors
-  - `/id/portfolio` / `/en/portfolio` — 25 Deep-dive Case Studies
-  - `/id/berita` / `/en/news` — News & Strategic Insights
-  - `/id/organisasi` / `/en/organization` — Executive Suite, Leads, and 16 Personnel Directory
-  - `/id/kontak` / `/en/contact` — Hardened Contact Form with RFC validation and rate limiting
-- **Enterprise Security & Hardening**:
-  - HTTP Security Headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, `X-XSS-Protection`)
-  - Zero AI Leak protocol & strict `.gitignore`
-- **SEO Ready**: Dynamic `sitemap.xml` with `hreflang` alternates and `robots.txt`.
+| Layer | Technologies |
+| :--- | :--- |
+| **Framework** | [Next.js 15](https://nextjs.org/) (App Router) |
+| **Core** | [React 19](https://react.dev/), [TypeScript 5](https://www.typescriptlang.org/) |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) |
+| **Animation** | [Framer Motion](https://motion.dev/) |
+| **Icons** | [Lucide React](https://lucide.dev/) |
+| **Testing** | Node.js Test Runner (`node:test`) |
+| **Deployment** | [Vercel](https://vercel.com/) |
 
 ---
 
-## 🛠️ Getting Started
+## Architecture & Features
+
+- **Localized Subpath Routing (i18n)**: Native bilingual routing (`/id` and `/en`) with locale switching and route preservation.
+- **Enterprise Design System**: Tailored typography, WCAG-compliant contrast ratios, and theme switching support.
+- **Dynamic Content Modules**: Structured directories for industry solutions, services, case studies, news articles, and leadership profiles.
+- **Security & Reliability**: Strict HTTP headers (`X-Frame-Options`, `X-Content-Type-Options`, `Permissions-Policy`), input validation, and request rate limiting.
+- **SEO & Search Discovery**: Dynamic `sitemap.xml` with `hreflang` alternating tags, semantic HTML5 structure, and OpenGraph metadata.
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js 18.18+ or 20+ (Node.js 22/24 recommended)
-- npm, pnpm, or yarn
+- **Node.js**: v18.18+ (Node.js 20+ LTS recommended)
+- **Package Manager**: npm, pnpm, or yarn
 
 ### Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/daffs26/Rynertia-Arch-Tech.git
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/daffs26/Rynertia-Arch-Tech.git
+   cd Rynertia-Arch-Tech
+   ```
 
-# Enter project directory
-cd Rynertia-Arch-Tech
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-# Install dependencies
-npm install
-```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Development Server
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-```bash
-npm run dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Available Scripts
 
-### Automated Testing
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the Next.js development server |
+| `npm run build` | Compiles the production build |
+| `npm run start` | Runs the compiled production build locally |
+| `npm run lint` | Runs ESLint to verify code quality and style standards |
+| `npm test` | Executes the automated test suite (security, data integrity, and QA gates) |
 
-```bash
-# Run all 24 QA and security verification suites
-npm test
-```
+---
 
-### Production Build
+## Project Structure
 
-```bash
-npm run build
-npm start
+```text
+├── public/                 # Static assets, media, and branding files
+├── src/
+│   ├── app/                # Next.js App Router (pages, layouts, and API handlers)
+│   ├── components/         # Reusable UI components and section layouts
+│   ├── context/            # React context providers (e.g., ThemeContext)
+│   ├── data/               # Structured data models and translations (ID/EN)
+│   ├── lib/                # Shared utilities and helper functions
+│   └── middleware.ts       # Next.js edge middleware for routing and security
+├── tests/                  # Verification test suites (QA, security, data integrity)
+├── next.config.ts          # Next.js configuration and HTTP security headers
+└── tailwind.config.ts      # Custom Tailwind styling tokens
 ```
 
 ---
 
-## ☁️ Deployment to Vercel
+## Deployment
 
-This repository is pre-configured for zero-config Vercel deployment:
+This repository is optimized for deployment on [Vercel](https://vercel.com):
 
-1. Import this repository in [Vercel Dashboard](https://vercel.com/new).
-2. Framework Preset: **Next.js** (automatically detected).
-3. Root Directory: `./` (leave default).
-4. Click **Deploy**.
+1. Link the repository to your Vercel project.
+2. The framework preset is automatically detected as **Next.js**.
+3. Deploy directly via Git push to the `main` branch.
 
 ---
 
-## 📄 License
+## License
 
 Proprietary © 2026 Rynertia Arc Tech. All rights reserved.
