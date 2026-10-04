@@ -1,0 +1,23 @@
+image: node:20-alpine
+
+stages:
+  - test
+  - build
+
+variables:
+  COREPACK_ENABLE_DOWNLOAD_PROMPT: 0
+
+before_script:
+  - corepack enable
+  - corepack prepare pnpm@latest --activate
+  - pnpm install --frozen-lockfile
+
+test:
+  stage: test
+  script:
+    - pnpm test
+
+build:
+  stage: build
+  script:
+    - pnpm run build
